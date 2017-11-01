@@ -44,7 +44,6 @@ public class MtClient {
 
     public void start(){
 
-
         try {
             // host为主机名，clientid即连接MQTT的客户端ID，一般以唯一标识符表示，MemoryPersistence设置clientid的保存形式，默认为以内存保存
             client = new MqttClient(HOST, clientid, new MemoryPersistence());
@@ -71,10 +70,9 @@ public class MtClient {
                 //订阅此主题，就可以接受其发布的信息
                 client.subscribe("HA_IAS/IN/ADD_DEVICE");
                 client.subscribe("HA_IAS/OUT/DEVICE_LIST");
-                //client.subscribe("HA_IAS/OUT/DEVICE_ALS_ALARM");
+                client.subscribe("HA_IAS/OUT/DEVICE_ALS_ALARM");//HA_IAS/OUT/DEVICE_ALS_ALARM
 
             }
-
           /*if(client.isConnected()){
                 MqttMessage message = new MqttMessage("HA_IAS/IN/ADD_DEVICE".getBytes());
                 client.publish("HA_IAS/IN/ADD_DEVICE",message);
@@ -95,6 +93,4 @@ public class MtClient {
 
         }
     }
-
-
 }

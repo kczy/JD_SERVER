@@ -1,3 +1,5 @@
+import com.google.gson.Gson;
+import entity.DeviceAlarm;
 import entity.Gateway;
 import entity.Mcu;
 import factory.SessionFactory;
@@ -27,6 +29,7 @@ public class MessageHandler extends IoHandlerAdapter {
 
         List<EventNotify> list=new ArrayList<EventNotify>();
         session.setAttribute("notifyList",list);
+
 
 
         ////会话创建的时候创建百度云客户端
@@ -116,6 +119,13 @@ public class MessageHandler extends IoHandlerAdapter {
                     if(gateway.isSrnOn()){
                         System.out.println("设备报警了.....");
 
+                        DeviceAlarm deviceAlarm= (DeviceAlarm) session.getAttribute("deviceAlarm");
+                        if(deviceAlarm==null){
+                            session.setAttribute("deviceAlarm",new DeviceAlarm());
+                            deviceAlarm= (DeviceAlarm) session.getAttribute("deviceAlarm");
+                        }
+
+                        deviceAlarm.setTime(new Date().getTime());
                     }
 
                 }else if(bts[8]==6){//透传解析
@@ -125,7 +135,17 @@ public class MessageHandler extends IoHandlerAdapter {
                         System.out.println("子设备上报");
                         Mcu mcu=ParseUtil.getMuc(bts);
                         System.out.println(mcu);
-                        //发布设备类型到百度天工
+
+                        DeviceAlarm deviceAlarm= (DeviceAlarm) session.getAttribute("deviceAlarm");
+                        if(deviceAlarm!=null){
+                            //发布设备类型到百度天工
+                            deviceAlarm.setName0(mcu.getZoneType2());
+                            client= (MtClient) session.getAttribute("MTClient");
+                            Gson gson=new Gson();
+                            client.publish("HA_IAS/OUT/DEVICE_ALS_ALARM",gson.toJson(deviceAlarm));
+                            deviceAlarm=null;
+                            session.removeAttribute("deviceAlarm");
+                        }
 
                     }else if(bts[9]==4){
                         //上报子设备列表

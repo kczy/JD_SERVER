@@ -6,8 +6,10 @@ import hansen.Outer;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import sun.util.logging.PlatformLogger;
 
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PushCallback implements MqttCallback, EventNotify {
@@ -52,8 +54,9 @@ public class PushCallback implements MqttCallback, EventNotify {
             outer.getMCUList();
         }
         //4删除设备
-        if("HA_IAS/PRODUCT_ID/OUT/DELETE_DEVICE".equals(topic)){
-            outer.deleteMCU(new String(mqttMessage.getPayload()));
+        if("HA_IAS/OUT/DEVICE_ALS_ALARM".equals(topic)){
+            log.log(Level.INFO,new String(mqttMessage.getPayload()));
+            System.out.println("报警信息："+new String(mqttMessage.getPayload()));
         }
 
     }
