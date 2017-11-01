@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="mina">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/gson-2.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mina-example-2.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mina-filter-compression-2.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mina-http-2.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mina-integration-beans-2.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mina-integration-jmx-2.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mina-integration-ognl-2.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mina-integration-xbean-2.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mina-statemachine-2.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mina-transport-apr-2.0.16.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
