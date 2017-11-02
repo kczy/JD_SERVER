@@ -115,42 +115,46 @@ public class MessageHandler extends IoHandlerAdapter {
 
                 if(bts[8]==4){//非透传解析
                     Gateway gateway=ParseUtil.getGateway(bts);
-                    System.out.println("网关上报");
                     if(gateway.isSrnOn()){
                         System.out.println("设备报警了.....");
+                        System.out.println("设备报警了.....");
+                        System.out.println("设备报警了.....");
 
-                        DeviceAlarm deviceAlarm= (DeviceAlarm) session.getAttribute("deviceAlarm");
-                        if(deviceAlarm==null){
-                            session.setAttribute("deviceAlarm",new DeviceAlarm());
-                            deviceAlarm= (DeviceAlarm) session.getAttribute("deviceAlarm");
-                        }
-
-                        deviceAlarm.setTime(new Date().getTime());
+//                        DeviceAlarm deviceAlarm= (DeviceAlarm) session.getAttribute("deviceAlarm");
+//                        if(deviceAlarm==null){
+//                            session.removeAttribute("deviceAlarm");
+//                            session.setAttribute("deviceAlarm",new DeviceAlarm());
+//                        }
+//                        deviceAlarm= (DeviceAlarm) session.getAttribute("deviceAlarm");
+//                        deviceAlarm.setTime(new Date().getTime());
+//                        System.out.println("报警时间："+deviceAlarm.getTime());
                     }
 
                 }else if(bts[8]==6){//透传解析
                     log.info("【设备上报透传    "+new Date().toString()+"】");
                     if(bts[9]==1){
                         //上报子设备
-                        System.out.println("子设备上报");
+                        System.out.println("子设备上报:");
                         Mcu mcu=ParseUtil.getMuc(bts);
                         System.out.println(mcu);
-
-                        DeviceAlarm deviceAlarm= (DeviceAlarm) session.getAttribute("deviceAlarm");
-                        if(deviceAlarm!=null){
-                            //发布设备类型到百度天工
-                            deviceAlarm.setName0(mcu.getZoneType2());
-                            client= (MtClient) session.getAttribute("MTClient");
-                            Gson gson=new Gson();
-                            client.publish("HA_IAS/OUT/DEVICE_ALS_ALARM",gson.toJson(deviceAlarm));
-                            deviceAlarm=null;
-                            session.removeAttribute("deviceAlarm");
-                        }
+//                        DeviceAlarm deviceAlarm= (DeviceAlarm) session.getAttribute("deviceAlarm");
+//                        if(deviceAlarm!=null){
+//                            //发布设备类型到百度天工
+//                            deviceAlarm.setName0(mcu.getZoneType2());
+//                            client= (MtClient) session.getAttribute("MTClient");
+//                            Gson gson=new Gson();
+//                            client.publish("HA_IAS/OUT/DEVICE_ALS_ALARM",gson.toJson(deviceAlarm));
+//                            deviceAlarm=null;
+//                            session.removeAttribute("deviceAlarm");
+//                        }
 
                     }else if(bts[9]==4){
                         //上报子设备列表
-                        System.out.println("子设备列表上报");
+                        System.out.println("子设备列表上报:");
                         List<Mcu> mcus=ParseUtil.getMcus(bts);
+                        for(int i=0;i<mcus.size();i++){
+                            System.out.println(mcus.get(i));
+                        }
                         System.out.println(mcus);
                     }
                 }
@@ -164,7 +168,7 @@ public class MessageHandler extends IoHandlerAdapter {
 
     @Override
     public void messageSent(IoSession session, Object message) throws Exception {
-        log.log(Level.FINEST,"【消息发送成功   "+new Date().toString()+"】");
+        log.log(Level.INFO,"【消息发送成功   "+new Date().toString()+"】");
         super.messageSent(session, message);
     }
 

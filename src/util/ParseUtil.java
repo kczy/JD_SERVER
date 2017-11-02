@@ -75,7 +75,7 @@ public class ParseUtil {
 
         List<Mcu> mcus=new ArrayList<Mcu>();
         for(int i=0;i<bts[10];i++){//第十一字节是设备个数，因此循环
-            System.out.println("子设备列表第"+(i+1)+"个设备信息:"+mcus.get(i));
+
             Mcu mcu=new Mcu();
             mcu.setIEEE(new byte[8]);
             for(int j=0;j<8;j++){
@@ -87,7 +87,9 @@ public class ParseUtil {
             mcu.getZoneType()[1]=bts[27];
             mcu.setZoneType2(BaseUtil.getInt(mcu.getZoneType()));
 
+
             mcus.add(mcu);
+
         }
         return mcus;
     }

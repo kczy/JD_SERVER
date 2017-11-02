@@ -25,6 +25,8 @@ public class PushCallback implements MqttCallback, EventNotify {
     public void connectionLost(Throwable throwable) {
         // 连接丢失后，一般在这里面进行重连
         log.warning("【mqtt连接断开】");
+        log.severe("mqtt连接断开");
+        log.warning("【mqtt连接断开】");
     }
 
     @Override

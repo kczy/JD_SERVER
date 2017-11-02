@@ -40,15 +40,16 @@ public class MinaServer {
         // 绑定逻辑处理器
         acceptor.setHandler(new MessageHandler());
 
-
+        InetSocketAddress socket=null;
         //绑定端口
         try {
-            InetSocketAddress socket=new InetSocketAddress(Configuration.PORT);
+            socket=new InetSocketAddress(Configuration.PORT);
             acceptor.bind(socket);
             log.log(Level.INFO,"【服务启动成功，端口号为:"+Configuration.PORT+"】");
 
         } catch (IOException e) {
             log.log(Level.SEVERE,"【端口绑定错误"+e.toString()+"】");
+            acceptor.unbind(socket);
         }finally {
             acceptor.unbind(new InetSocketAddress(Configuration.PORT));
         }
