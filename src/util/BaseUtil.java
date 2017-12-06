@@ -2,8 +2,11 @@ package util;
 
 
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class BaseUtil {
@@ -66,9 +69,31 @@ public class BaseUtil {
                 (bytes[3] & 0xff); */        //还原int值的最低8位
     }
 
+
+
+
+
+    public static byte[] doListTransByte(List<Byte> list) {
+        byte[] bts=new byte[list.size()];
+        for(int i=0;i<bts.length;i++){
+            bts[i]=list.get(i);
+        }
+        return bts;
+    }
+
+    public static List<Byte> doByteTransList(byte[] bts){
+        List<Byte> list=new ArrayList<Byte>();
+        for(byte b:bts){
+            list.add(b);
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
-        byte[] bs={4,13};
-        System.out.println(getInt(bs));
+        HashMap<Long,Object> map=new HashMap<Long,Object>();
+        map.put(123L,"sdf");
+        map.put(123L,"34");
+        System.out.println(map.size());
     }
 }
 

@@ -19,18 +19,26 @@ public class Mcu {
     private byte[] set;             //设置
     private byte[] signal;          //信号强度
 
-    private int IEEE2;            //IEEE地址
-    private int shortAdress2;     //短地址
-    private int endPoint2;        //结束点
-    private int profileID2;       //ProfileID
-    private int DeviceID2;        //设备ID
-    private int zoneType2;        //类型
-    private String name2;            //设备名字
-    private int currStatus2;      //当前状态
-    private int currStatusStr2;   //当前状态
-    private int set2;             //设置
-    private int signal2;          //信号强度
+    private String IEEE2;            //IEEE地址
+    private Integer shortAdress2;     //短地址
+    private Integer endPoint2;        //结束点
+    private Integer profileID2;       //ProfileID
+    private String DeviceID2;        //设备ID
+    private Integer zoneType2;        //类型
+    private Integer name2;            //设备名字
+    private Integer currStatus2;      //当前状态
+    private Integer currStatusStr2;   //当前状态
+    private Integer set2;             //设置
+    private Integer signal2;          //信号强度
 
+    public void setIEEE2(String IEEE2) {
+        this.IEEE2 = IEEE2;
+    }
+
+    public String getIEEE2() {
+
+        return IEEE2;
+    }
 
     public boolean isAlarm() {
         return isAlarm;
@@ -40,9 +48,7 @@ public class Mcu {
         isAlarm = alarm;
     }
 
-    public void setIEEE2(int IEEE2) {
-        this.IEEE2 = IEEE2;
-    }
+
 
     public void setShortAdress2(int shortAdress2) {
         this.shortAdress2 = shortAdress2;
@@ -56,9 +62,7 @@ public class Mcu {
         this.profileID2 = profileID2;
     }
 
-    public void setDeviceID2(int deviceID2) {
-        DeviceID2 = deviceID2;
-    }
+
 
     public void setZoneType2(int zoneType2) {
 
@@ -101,21 +105,6 @@ public class Mcu {
     }
 
 
-    public String getName() {
-        return name;
-    }
-
-    public String getName2() {
-        return name2;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setName2(String name2) {
-        this.name2 = name2;
-    }
 
     public void setCurrStatus2(int currStatus2) {
         this.currStatus2 = currStatus2;
@@ -133,9 +122,7 @@ public class Mcu {
         this.signal2 = signal2;
     }
 
-    public int getIEEE2() {
-        return IEEE2;
-    }
+
 
     public int getShortAdress2() {
         return shortAdress2;
@@ -149,13 +136,9 @@ public class Mcu {
         return profileID2;
     }
 
-    public int getDeviceID2() {
-        return DeviceID2;
-    }
 
-    public int getZoneType2() {
-        return zoneType2;
-    }
+
+
 
     public int getCurrStatus2() {
         return currStatus2;
@@ -255,6 +238,66 @@ public class Mcu {
 
     public byte[] getSignal() {
         return signal;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+
+    public void setShortAdress2(Integer shortAdress2) {
+        this.shortAdress2 = shortAdress2;
+    }
+
+    public void setEndPoint2(Integer endPoint2) {
+        this.endPoint2 = endPoint2;
+    }
+
+    public void setProfileID2(Integer profileID2) {
+        this.profileID2 = profileID2;
+    }
+
+    public void setDeviceID2(String deviceID2) {
+        DeviceID2 = deviceID2;
+    }
+
+    public String getDeviceID2() {
+
+        return DeviceID2;
+    }
+
+    public void setZoneType2(Integer zoneType2) {
+        this.zoneType2 = zoneType2;
+    }
+
+    public void setName2(Integer name2) {
+        this.name2 = name2;
+    }
+
+    public void setCurrStatus2(Integer currStatus2) {
+        this.currStatus2 = currStatus2;
+    }
+
+    public void setCurrStatusStr2(Integer currStatusStr2) {
+        this.currStatusStr2 = currStatusStr2;
+    }
+
+    public void setSet2(Integer set2) {
+        this.set2 = set2;
+    }
+
+    public void setSignal2(Integer signal2) {
+        this.signal2 = signal2;
+    }
+
+    public String getName() {
+
+        return name;
+    }
+
+    public Integer getName2() {
+        return name2;
     }
 
     @Override

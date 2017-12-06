@@ -25,9 +25,6 @@ public class MtClient {
     private String passWord = "xezbiXaLrXMtHcPcFBfCEySy1yoXbmJ9UoFVJR7E/FI=";
 
 
-    public static final String TOPIC1 = "HA_IAS/OUT/DEVICE_LIST";
-    public static final String TOPIC2 = "HA_IAS/IN/ADD_DEVICE";
-
     public MtClient(){
 
     }
@@ -40,7 +37,6 @@ public class MtClient {
     private MqttConnectOptions options;
 
     private ScheduledExecutorService scheduler;
-
 
     public void start(){
 

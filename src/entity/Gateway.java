@@ -20,6 +20,52 @@ public class Gateway {
     private int alms;        //为撤防报警数量
     private String RSSI;        //信号强度
 
+
+    private String pushValue;//根据pushID来确定值
+
+    public void setArmDlyg(String armDlyg) {
+        this.armDlyg = armDlyg;
+    }
+
+    public void setAlmdlyg(String almdlyg) {
+        this.almdlyg = almdlyg;
+    }
+
+    public void setRSSI(String RSSI) {
+        this.RSSI = RSSI;
+    }
+
+    public void setPushValue(String pushValue) {
+        this.pushValue = pushValue;
+    }
+
+    public String getArmDlyg() {
+        return armDlyg;
+    }
+
+    public String getAlmdlyg() {
+        return almdlyg;
+    }
+
+    public String getRSSI() {
+        return RSSI;
+    }
+
+    public String getPushValue() {
+        if(pushID==1){
+            pushValue="有子设备防拆报警";
+        }else if(pushID==2){
+            pushValue="子设备报警";
+        }else if(pushID==3){
+            pushValue="SOS紧急报警";
+        }else if(pushID==4){
+            pushValue="子设备电池电压低";
+        }else if(pushID==5){
+            pushValue="外出不放时有门窗未关好";
+        }
+        return pushValue;
+    }
+
     public int getArmDly2() {
         return armDly2;
     }

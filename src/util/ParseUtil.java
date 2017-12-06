@@ -2,6 +2,8 @@ package util;
 
 import entity.Gateway;
 import entity.Mcu;
+import entity.SecurityDeviceResponseVO;
+import org.apache.mina.core.session.IoSession;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,12 +12,20 @@ public class ParseUtil {
 
     public static String getID(byte[] bts){
         StringBuilder sb=new StringBuilder();
-        for(int i=40;i<72;i++){
+        //嘉德的是40>=i<72，因为太长了 这里只用最后12个
+        for(int i=66;i<72;i++){
             sb.append(BaseUtil.encodeHexStr(bts[i]));
         }
         return sb.toString();
     }
-
+    public static String getID2(byte[] bts){
+        StringBuilder sb=new StringBuilder();
+        int num=0;
+        for(int i=40;i<72;i++){
+            num+=bts[i]&0xFF;
+        }
+        return num+"";
+    }
 
     public static Gateway getGateway(byte[] bts) {
         Gateway gateway=new Gateway();
@@ -28,6 +38,8 @@ public class ParseUtil {
         gateway.setArmState(Integer.parseInt(bs[8-5]+""+bs[8-6],2));
         //将一个字符串转换为二进制的字符数组表现形式
 
+
+
         Integer timeSrnOn=bts[11]+bts[12];
         gateway.setTimeSrnOn(timeSrnOn);
 
@@ -36,6 +48,10 @@ public class ParseUtil {
 
         Integer armDly2=bts[15]+bts[16];
         gateway.setArmDly2(armDly2);
+
+        int pushId=bts[22];
+        gateway.setPushID(pushId);
+
 
         return gateway;
     }
@@ -71,26 +87,67 @@ public class ParseUtil {
         return mcu;
     }
 
-    public static List<Mcu> getMcus(byte[] bts) {
 
-        List<Mcu> mcus=new ArrayList<Mcu>();
-        for(int i=0;i<bts[10];i++){//第十一字节是设备个数，因此循环
-
-            Mcu mcu=new Mcu();
-            mcu.setIEEE(new byte[8]);
+    public static List<SecurityDeviceResponseVO> getDevices(byte[] bts,IoSession session) {
+        List<SecurityDeviceResponseVO> responseVOList = new ArrayList<>();
+        //resultArr获得列表数据包，开始解析
+        for(int i=0;i<bts[11];i++){//设备个数，循环(有多少设备就循环多少次)
+            SecurityDeviceResponseVO stateVO=new SecurityDeviceResponseVO();
+            //设置网关地址
+            stateVO.setSno((String) session.getAttribute("sno"));
+            //安全设备的IP地址
+            stateVO.setAddress(session.getRemoteAddress().toString());
+            //设置ieee地址
+            StringBuilder sb=new StringBuilder();
             for(int j=0;j<8;j++){
-                mcu.getIEEE()[j]=bts[11+j+i*52];
+                if((bts[12+j+i*52]&0xFF)<16){
+                    sb.append("0");
+                }
+                sb.append(Integer.toHexString(bts[12+j+i*52]&0xFF));
             }
+            stateVO.setIeee(sb.toString());
+            //设备类型zone_type
+            Integer type=bts[28+i*52]<<8|bts[27+i*52]&0xff;
+            stateVO.setDevice(type);
+            //设置设备名
+            stateVO.setName(stateVO.getName());
+            //设置endpoint
+            stateVO.setEndpoint(bts[22+i*52]&0xff);
+            /*
+                是否在线，1=是，2=否，使用
+                private Integer deviceOpenInd;
+            */
+            byte[] bArr=byte2CharArr(bts[61+i*52]&0xff);
+            int isOn=bArr[7-6]==1?6:0;
+            isOn=bArr[7-7]==1?7:isOn;
+            stateVO.setState(isOn);
+            stateVO.setClusterId(isOn);
 
-            mcu.setZoneType(new byte[2]);
-            mcu.getZoneType()[0]=bts[26];
-            mcu.getZoneType()[1]=bts[27];
-            mcu.setZoneType2(BaseUtil.getInt(mcu.getZoneType()));
-
-
-            mcus.add(mcu);
-
+            int isElectric=bArr[7-2]==1?1:0;
+            stateVO.setElectric(isElectric);
+            //加入
+            responseVOList.add(stateVO);
         }
-        return mcus;
+
+        //System.out.println(responseVOList);
+
+        return responseVOList;
     }
+
+    public static byte[] byte2CharArr(int n){
+        char[] cs = Integer.toBinaryString(n).toCharArray();
+        byte[] bs=new byte[8];
+        //1000
+        for(int i=cs.length-1,j=0;i>=0;i--,j++){
+            bs[j]= (byte) ((cs[i]=='1')?1:0);
+        }
+        for(int i=0,j=7;i<j;i++,j--){
+            byte b;
+            b=bs[i];
+            bs[i]=bs[j];
+            bs[j]=b;
+        }
+        return bs;
+    }
+
 }

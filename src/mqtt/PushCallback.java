@@ -41,7 +41,7 @@ public class PushCallback implements MqttCallback, EventNotify {
             outer=new Outer(new String(mqttMessage.getPayload()),this);
             if (outer!=null){
                 log.info("【接收到序列号：["+mqttMessage.getPayload()+"]outer注册成功！】");
-                client.publish("HA_IAS/IN/ADD_DEVICE","HA_IAS/IN/ADD_DEVICE");
+                //client.publish("HA_IAS/IN/ADD_DEVICE","HA_IAS/IN/ADD_DEVICE");
             }
         }
 
@@ -50,16 +50,11 @@ public class PushCallback implements MqttCallback, EventNotify {
             System.out.println("添加子设备");
             outer.addMCU();
         }
-        //3请求子设备列表
-        if("HA_IAS/PRODUCT_ID/OUT/DEVICE_LIST".equals(topic)){
-            System.out.println("子设备上报，准备查询子设备列表");
-            outer.getMCUList();
-        }
-        //4删除设备
-        if("HA_IAS/OUT/DEVICE_ALS_ALARM".equals(topic)){
-            log.log(Level.INFO,new String(mqttMessage.getPayload()));
-            System.out.println("报警信息："+new String(mqttMessage.getPayload()));
-        }
+
+
+
+
+
 
     }
 
