@@ -205,13 +205,42 @@ public class MessageHandler extends IoHandlerAdapter {
                 String snoadd = sbadd.toString();
                 IoSession sessionadd = (IoSession) SessionFactory.getSessionMap().get(snoadd);
                 if (sessionadd != null) {
-                    String msgadd = "FFFF00100322000001000202000000000000003A";
-                    byte[] btsadd = BaseUtil.toByteArray(msgadd);
-                    IoBuffer bufadd = IoBuffer.allocate(100);
-                    bufadd.setAutoExpand(true);
-                    bufadd.put(btsadd);
-                    bufadd.flip();
-                    sessionadd.write(bufadd);
+                    try {
+                        //如果网关存在但是是离线的
+                        if(sessionadd.isClosing()){
+                            String isSend = "FFFF0003020000";
+                            byte[] isSendBt=BaseUtil.toByteArray(isSend);
+                            IoBuffer isSendBuf = IoBuffer.allocate(100);
+                            isSendBuf.setAutoExpand(true);
+                            isSendBuf.put(isSendBt);
+                            isSendBuf.flip();
+                            session.write(isSendBuf);
+                        }
+                        String msgadd = "FFFF00100322000001000202000000000000003A";
+                        byte[] btsadd = BaseUtil.toByteArray(msgadd);
+                        IoBuffer bufadd = IoBuffer.allocate(100);
+                        bufadd.setAutoExpand(true);
+                        bufadd.put(btsadd);
+                        bufadd.flip();
+                        sessionadd.write(bufadd);
+                        String isSend = "FFFF0003010000";
+                        byte[] isSendBt=BaseUtil.toByteArray(isSend);
+                        IoBuffer isSendBuf = IoBuffer.allocate(100);
+                        isSendBuf.setAutoExpand(true);
+                        isSendBuf.put(isSendBt);
+                        isSendBuf.flip();
+                        session.write(isSendBuf);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        String isSend = "FFFF0003000000";
+                        byte[] isSendBt=BaseUtil.toByteArray(isSend);
+                        IoBuffer isSendBuf = IoBuffer.allocate(100);
+                        isSendBuf.setAutoExpand(true);
+                        isSendBuf.put(isSendBt);
+                        isSendBuf.flip();
+                        session.write(isSendBuf);
+                    }
                 }
                 break;
             case 32:
@@ -224,7 +253,15 @@ public class MessageHandler extends IoHandlerAdapter {
                 IoSession sessionLogin = (IoSession) SessionFactory.getSessionMap().get(snoStr);
                 String isLogin = "";
                 if (sessionLogin != null) {
-                    isLogin = "FFFF0003200000";
+                    isLogin = "FFFF0003010000";
+                    //如果有此网关就主动去操一次列表
+                    String requestListStr = "FFFF00080324000005030138";//发送获取设备列表命令
+                    byte[] requestListByte = BaseUtil.toByteArray(requestListStr);
+                    IoBuffer requestListBuf = IoBuffer.allocate(100);
+                    requestListBuf.setAutoExpand(true);
+                    requestListBuf.put(bts);
+                    requestListBuf.flip();
+                    session.write(requestListBuf);
                 } else {
                     isLogin = "FFFF0003000000";
                 }
@@ -264,7 +301,7 @@ public class MessageHandler extends IoHandlerAdapter {
         log.info("消息发送完毕buffer.remaining()：" + buffer.remaining());
         log.info("消息发送完毕buffer.limit()：" + buffer.limit());
         log.info("消息发送完毕buffer.position()：" + buffer.position());
-        log.info(sb.toString());
+        log.info("发送的消息："+sb.toString());
     }
 
 
