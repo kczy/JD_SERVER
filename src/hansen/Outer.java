@@ -110,7 +110,7 @@ public class Outer {
             }
             return;
         }
-
+        //[FF FF 00 10 03 22 00 00 01 00 02 02 00 00 00 00 00 00 00 3A]
         String msg2="FFFF00100322000001000202000000000000003A";
         byte[] bts2= BaseUtil.toByteArray(msg2);
         IoBuffer buf = IoBuffer.allocate(100);

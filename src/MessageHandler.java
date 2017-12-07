@@ -338,12 +338,26 @@ public class MessageHandler extends IoHandlerAdapter {
         super.inputClosed(session);
     }
 
+    /**
+     * 发送数据方法
+     * @param session
+     * @param HexData
+     */
+    public void sendGataway(IoSession session,String HexData){
+        byte[] data=BaseUtil.toByteArray(HexData);
+        IoBuffer buffer=IoBuffer.allocate(100);
+        buffer.setAutoExpand(true);
+        buffer.put(data);
+        buffer.flip();
+        session.write(buffer);
+    }
+
     public void send(int type, List list) {
-        JiadeParams params = new JiadeParams(1, list);
+        JiadeParams params = new JiadeParams(type, list);
         String jsonString = gson.toJson(params);
         log.info("设备列表json：" + jsonString);
         try {
-            HttpUtil.doPostStr("http://10.39.100.72:8080/device/elder/security/security-device-jiade-impl", jsonString);
+            HttpUtil.doPostStr("http://192.168.1.175:8080/device/elder/security/security-device-jiade-impl", jsonString);
         } catch (IOException e) {
             e.printStackTrace();
         }
