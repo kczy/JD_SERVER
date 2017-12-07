@@ -10,9 +10,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/resources/META-INF/MANIFEST.MF" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/mina_jar/mina.jar" afterPath="$PROJECT_DIR$/out/artifacts/mina_jar/mina.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/mina/MessageHandler.class" afterPath="$PROJECT_DIR$/out/production/mina/MessageHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/mina_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/mina_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MessageHandler.java" afterPath="$PROJECT_DIR$/src/MessageHandler.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,9 +28,10 @@
       <file leaf-file-name="MessageHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MessageHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="214" column="52" lean-forward="false" selection-start-line="214" selection-start-column="52" selection-end-line="214" selection-end-column="52" />
+            <state relative-caret-position="143">
+              <caret line="246" column="21" lean-forward="true" selection-start-line="246" selection-start-column="21" selection-end-line="246" selection-end-column="21" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#exceptionCaught#0;class#MessageHandler#0" expanded="false" />
               </folding>
             </state>
@@ -151,11 +150,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="356" />
-    <option name="y" value="48" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="178" />
+    <option name="y" value="29" />
     <option name="width" value="1163" />
-    <option name="height" value="716" />
+    <option name="height" value="712" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -184,6 +183,24 @@
             <path>
               <item name="mina" type="b2602c69:ProjectViewProjectNode" />
               <item name="mina" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mina" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mina" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mina" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mina" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mina" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mina" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="mina_jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mina" type="b2602c69:ProjectViewProjectNode" />
@@ -477,15 +494,16 @@
       <workItem from="1512350512680" duration="23279000" />
       <workItem from="1512441490732" duration="17019000" />
       <workItem from="1512524119207" duration="11900000" />
-      <workItem from="1512609941282" duration="9548000" />
+      <workItem from="1512609941282" duration="17522000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="466532000" />
+    <option name="totallyTimeSpent" value="474506000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="356" y="48" width="1163" height="716" extended-state="0" />
+    <frame x="178" y="29" width="1163" height="712" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -494,10 +512,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6642857" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3747841" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24525043" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18434782" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22970639" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24116047" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24569356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24886878" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -567,13 +585,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>189</line>
+          <line>199</line>
           <properties />
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>183</line>
+          <line>193</line>
           <properties />
           <option name="timeStamp" value="77" />
         </line-breakpoint>
@@ -591,43 +609,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>127</line>
+          <line>137</line>
           <properties />
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>267</line>
+          <line>289</line>
           <properties />
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>247</line>
+          <line>269</line>
           <properties />
           <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>200</line>
+          <line>210</line>
           <properties />
           <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>156</line>
+          <line>166</line>
           <properties />
           <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>320</line>
+          <line>342</line>
           <properties />
           <option name="timeStamp" value="131" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>205</line>
+          <line>215</line>
           <properties />
           <option name="timeStamp" value="132" />
         </line-breakpoint>
@@ -965,9 +983,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MessageHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="214" column="52" lean-forward="false" selection-start-line="214" selection-start-column="52" selection-end-line="214" selection-end-column="52" />
+        <state relative-caret-position="143">
+          <caret line="246" column="21" lean-forward="true" selection-start-line="246" selection-start-column="21" selection-end-line="246" selection-end-column="21" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#exceptionCaught#0;class#MessageHandler#0" expanded="false" />
           </folding>
         </state>
