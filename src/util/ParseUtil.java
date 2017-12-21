@@ -10,10 +10,14 @@ import java.util.List;
 
 public class ParseUtil {
 
+    public static int GetGwType(byte[] bts){
+        return bts[113]==0x31?Constant.SESSION_ATTR_VAL_GW_TYPE_ZIGBEE:Constant.SESSION_ATTR_VAL_GW_TYPE_RF;
+    }
+
     public static String getID(byte[] bts){
         StringBuilder sb=new StringBuilder();
         //嘉德的是40>=i<72，因为太长了 这里只用最后12个
-        for(int i=66;i<72;i++){
+        for(int i=(66);i<(72);i++){
             sb.append(BaseUtil.encodeHexStr(bts[i]));
         }
         return sb.toString();

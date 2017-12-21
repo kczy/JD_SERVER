@@ -17,7 +17,7 @@ public class SessionFactory {
 
     private SessionFactory(){}
 
-    private static Map<Long,IoSession> map=new HashMap<Long,IoSession>();
+    private static Map<String,IoSession> map=new HashMap<String,IoSession>();
     public static Map getSessionMap(){
         return map;
     }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/mina.iml" filepath="$PROJECT_DIR$/mina.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kc_jd_drv.iml" filepath="$PROJECT_DIR$/kc_jd_drv.iml" />
     </modules>
   </component>
 </project>

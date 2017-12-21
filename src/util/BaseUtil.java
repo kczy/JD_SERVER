@@ -37,8 +37,11 @@ public class BaseUtil {
 
 
     public static String encodeHexStr(int b) {
-        return Integer.toHexString(0xFF&b);
+
+        String pck=b>15?Integer.toString(b,16):"0"+Integer.toString(b,16);
+        return pck;
     }
+
 
     /**
      * 将一个数字转换为二进制的数组表现形式 如：8------00001000
@@ -90,10 +93,15 @@ public class BaseUtil {
     }
 
     public static void main(String[] args) {
-        HashMap<Long,Object> map=new HashMap<Long,Object>();
-        map.put(123L,"sdf");
-        map.put(123L,"34");
-        System.out.println(map.size());
+        byte[] buf={101,49,52,99,99,48};
+        System.out.println(ByteUtil.bytesToHexString(buf));
+    }
+
+
+    public static String intTranHexStr(int i){
+
+        String  num=Integer.toHexString(i);
+        return num;
     }
 }
 

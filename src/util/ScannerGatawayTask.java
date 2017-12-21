@@ -48,4 +48,24 @@ public class ScannerGatawayTask {
         return sessionMap = SessionFactory.getSessionMap();
     }
 
+    public static void main(String[] args) {
+        HashMap<String,Session> sessionMap=new HashMap<String,Session>();
+        sessionMap.put("111",new Session("小强"));
+        sessionMap.put("111",new Session("旺财"));
+        System.out.println(sessionMap.size());
+        System.out.println(sessionMap.get("111"));
+    }
+}
+class Session{
+    String name;
+    public Session(String name){
+        this.name=name;
+    }
+
+    @Override
+    public String toString() {
+        return "Session{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

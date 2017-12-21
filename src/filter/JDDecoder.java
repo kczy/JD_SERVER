@@ -1,5 +1,7 @@
 package filter;
-
+/*
+*   http://blog.csdn.net/sunzhenhua0608/article/details/31778519   Iobuffer的详细介绍
+* */
 import factory.ByteDecodeFactory;
 import org.apache.mina.core.buffer.IoBuffer;
 import org.apache.mina.core.session.IoSession;
@@ -7,6 +9,7 @@ import org.apache.mina.filter.codec.CumulativeProtocolDecoder;
 import org.apache.mina.filter.codec.ProtocolDecoderOutput;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -18,118 +21,165 @@ public class JDDecoder extends CumulativeProtocolDecoder {
     static Logger log = Logger.getLogger(JDDecoder.class.getName());
 
 
+    private byte[]  JD_POTO_HRAD={(byte)0xFF,(byte)0xFF};
+    private byte[]  JD_POTO_FF={(byte)0xFF,(byte)0x55};
+    private enum DEC_FSM_STATUS {
+        DEC_FIND_HEAD, /*寻找包头*/
+        DEC_GET_MSG_LEN_MSB,/*获取内容长度_msb*/
+        DEC_GET_MSG_LEN_LSB,/*获取内容长度_lsb*/
+        DEC_RCV_CTX/*接收内容*/
+    }
+
+    /*检测包头*/
+
+    private   boolean JDDecoderIsHead(byte  data,List<Byte> ba )
+    {
+
+        if(ba.size()>0)
+            ba.add(1,ba.get(0));
+
+        ba.add(0,data);
+
+        if(ba.size()>1)
+        return (ba.get(1)==JD_POTO_HRAD[0])&(ba.get(0)==JD_POTO_HRAD[1])?true:false;
+        else
+            return false;
+    }
+    /*
+    * 检测转义字符0xFF
+    * */
+    private   boolean JDDecoderCheckFF(byte  data,List<Byte> ba)
+    {
+        if(ba.size()>0)
+        return ((ba.get(ba.size()-1)==JD_POTO_FF[0])&(data==JD_POTO_FF[1]))?true:false;
+        else
+            return false;
+    }
+    /*
+    * 消息校验和检测
+    * */
+    private   boolean JDDecoderCheckCRC(List<Byte>  data)
+    {
+        int checkSum=0;
+        /*TODO：进行校验检测*/
+        for (Byte datum : data) {
+            checkSum+=datum;
+        }
+        System.out.println("校验和："+(checkSum-data.get(data.size()-1))%256+"==="+(data.get(data.size()-1)));
+        return (checkSum-data.get(data.size()-1))%256==data.get(data.size()-1);
+    }
+
+
+
     @Override
     protected boolean doDecode(IoSession ioSession, IoBuffer ioBuffer, ProtocolDecoderOutput protocolDecoderOutput) throws Exception {
+        //IoBuffer.reset  reset方法 是把当前位置position设置为当前mark，而不是0
 
-        Context ctx=getContext(ioSession);
+        Context ctx=getContext(ioSession,true);
         List<Byte> lsBuffer=ctx.getListBuffer();//搜集正确的包
-        ioBuffer.mark();//标记当前position    0
-        byte b=0;
-        byte flag=0;
+        byte b=(byte)0x00;
+
         //如果有数据就要拼包
         while (ioBuffer.hasRemaining()){
-            b=ioBuffer.get();//获取一个
+            b=ioBuffer.get();//获取一个,position加1
 
-            if(lsBuffer.size()>2&&!ctx.getState()){
-                if(b==-1&&flag==-1){
-                    ctx.resetState();
+             /*断包重置*/
+            if((ctx.lastByte==JD_POTO_HRAD[0])&&(b==JD_POTO_HRAD[1]))
+            {
+                if( ctx.decFsm!=DEC_FSM_STATUS.DEC_FIND_HEAD) {
+                    ctx.decFsm = DEC_FSM_STATUS.DEC_GET_MSG_LEN_MSB;
+                    lsBuffer.clear();
+                    ctx.msgLen = 0;
                     continue;
                 }
-
             }
+            ctx.lastByte=b;
 
-            if(b==85&&flag==-1){//如果55的前面是ff（ff 55）那么忽略本次55
-                flag=b;/////////////////
+            /*是否是转义0xFF*/
+            if(JDDecoderCheckFF(b,lsBuffer)){//如果55的前面是ff（ff 55）那么忽略本次55
                 continue;
             }
-            flag=b;
-            if(lsBuffer.size()==2&&lsBuffer.get(0)==-1&&lsBuffer.get(1)==-1){
-                //如果当中有了ff ff头那么此包具备了头
-                ctx.setIshead(true);//头完成
-            }
-            if(!ctx.ishead){    //如果头状态不满足就必须要让他满足
-                if(b!=-1){
-                    continue;
-                }
-            }
-            lsBuffer.add(b);
-            if(lsBuffer.size()==4){//包长度达到了就设置状态 并把包长度保存
-                byte packagelength= (byte) (lsBuffer.get(2)*((byte)16)+lsBuffer.get(3));
-                ctx.setIslength(true);
-                ctx.setPackageLength(packagelength);
-            }
-            if(lsBuffer.size()==4+ctx.getPackageLength()) {//报文头 FF FF 00 05=4    4+5=整个数据长度
-                ctx.setIscontent(true); //数据长度完成 设置状态
-                ctx.setIschecksum(true);//默认校验和成功
-                if(ctx.getState()){//如果状态都达到了一个包就好了
-                    //1将数据写出去
-                    protocolDecoderOutput.write(ctx.getByteBuffer(lsBuffer));
-                    ctx.resetState();
+
+
+
+            /*状态机，接收信息，保证包信息的完整性，然后调用解析*/
+            switch(ctx.decFsm)
+            {
+                case DEC_FIND_HEAD:/*包头*/
+                    if( JDDecoderIsHead(b,lsBuffer)) {
+                        ctx.decFsm = DEC_FSM_STATUS.DEC_GET_MSG_LEN_MSB;
+                    }
+                    else
+                    {
+                        ctx.msgLen=0;
+                    }
                     break;
-                }
+                case DEC_GET_MSG_LEN_MSB:/*包长*/
+                    lsBuffer.clear();
+                    lsBuffer.add(0,b);
+
+                    ctx.decFsm=DEC_FSM_STATUS.DEC_GET_MSG_LEN_LSB;
+                    break;
+                case DEC_GET_MSG_LEN_LSB:
+                    lsBuffer.add(b);
+                    ctx.decFsm=DEC_FSM_STATUS.DEC_RCV_CTX;
+                    ctx.msgLen=(lsBuffer.get(0)<<8)|lsBuffer.get(1);
+
+                    break;
+                case DEC_RCV_CTX:/*内容*/
+                    ctx.msgLen--;
+                    lsBuffer.add(b);
+                    if(ctx.msgLen==0) {
+
+                        if (JDDecoderCheckCRC(lsBuffer)) {
+                            /*为了保证后继解析index位置*/
+                            lsBuffer.add(0,(byte)0xFF);
+                            lsBuffer.add(1,(byte)0xFF);
+                             /*调用Handler*/
+                            protocolDecoderOutput.write(ctx.getByteBuffer(lsBuffer));
+                            ctx.decFsm = DEC_FSM_STATUS.DEC_FIND_HEAD;
+                            lsBuffer.clear();
+                        } else {
+                            ctx.decFsm = DEC_FSM_STATUS.DEC_FIND_HEAD;
+                        }
+                    }
+                    break;
+                default:
+                    ctx.decFsm=DEC_FSM_STATUS.DEC_FIND_HEAD;
+                    break;
             }
+
         }
 
-        if(ioBuffer.hasRemaining()){//如果还有数据  请继续接收  调用本方法
+        if(ioBuffer.hasRemaining()){//如果读取一个完整包内容后还有数据，让父类再调用一次
             return true;
         }
-        //没数据了就重新接收了,
-        return false;
+        else {//处父类进行接收下个包
+            return false;
+        }
     }
 
     /**
      * 从session中获得上下文对象
      * 上下文对象是自己弄得，目的是为了使用它里面的缓冲对象iobuffer
-     * @param session
+     * @param session  creat==没有是否要创建
      * @return
      */
-    private Context getContext(IoSession session){
+    public Context getContext(IoSession session,boolean  creat){
         Context ctx= (Context) session.getAttribute("context");
-        if(ctx==null){
+        if((ctx==null)&(creat)){
             ctx=new Context();
             session.setAttribute("context",ctx);
         }
         return ctx;
     }
 
-    private class Context{
 
-        private IoBuffer buffer;        //自定义缓冲区，用来拼接正确的包
-
-        private List<Byte> listBuffer=new ArrayList<Byte>();
-
-        private boolean ishead;         //头判断 判断一个完整包的标准
-
-        private boolean islength;       //长度判断 判断一个完整包的标准
-
-        private boolean iscontent;      //内容判断  判断一个完整包的标准
-
-        private boolean ischecksum;     //校验和   判断一个完整包的标准
-
-        private byte packageLength;     //包长度记录
-
-        private byte checksum;          //校验和
-        /**
-         * 获取状态
-         * @return
-         */
-        public boolean getState(){
-
-            return this.ishead && this.islength && this.iscontent && this.ischecksum;
-        }
-        /**
-         * 重置状态
-         */
-        public void resetState(){
-            this.ishead=false;
-            this.islength=false;
-            this.iscontent=false;
-            this.ischecksum=false;
-            this.packageLength=0;
-            this.checksum=0;
-            this.listBuffer.clear();
-        }
-
+    public class Context{
+        private List<Byte>  listBuffer=new ArrayList<>();
+        public DEC_FSM_STATUS decFsm=DEC_FSM_STATUS.DEC_FIND_HEAD;
+        public int   msgLen=0;/*数据长度记录*/
+        public byte  lastByte=0x00;/*上一个字节*/
         public byte[] getByteBuffer(List<Byte> list){
             byte[] bs=new byte[list.size()];
             for(int i=0;i<bs.length;i++){
@@ -138,79 +188,15 @@ public class JDDecoder extends CumulativeProtocolDecoder {
             return bs;
         }
 
-
-        private Context(){
-            buffer = IoBuffer.allocate(100).setAutoExpand(true);
-            resetState();
-        }
-
-
-        /////////////////////getter  setter/////////////////////////////
-        public void setChecksum(byte checksum) {
-            this.checksum = checksum;
-        }
-
-        public byte getChecksum() {
-            return checksum;
-        }
-
-        public byte getPackageLength() {
-            return packageLength;
-        }
-
-        public void setPackageLength(byte packageLength) {
-            this.packageLength = packageLength;
-        }
-
-        public IoBuffer getBuffer() {
-            return buffer;
-        }
-
-        public void setBuffer(IoBuffer buffer) {
-            this.buffer = buffer;
-        }
-
-        public boolean isIshead() {
-            return ishead;
-        }
-
-        public boolean isIslength() {
-            return islength;
-        }
-
-        public boolean isIscontent() {
-            return iscontent;
-        }
-
-        public boolean isIschecksum() {
-            return ischecksum;
-        }
-
-        public void setIshead(boolean ishead) {
-            this.ishead = ishead;
-        }
-
-        public void setIslength(boolean islength) {
-            this.islength = islength;
-        }
-
-        public void setIscontent(boolean iscontent) {
-            this.iscontent = iscontent;
-        }
-
-        public void setIschecksum(boolean ischecksum) {
-            this.ischecksum = ischecksum;
-        }
-
-        public List<Byte> getListBuffer() {
+        public List<Byte> getListBuffer()
+        {
             return listBuffer;
         }
 
-        public void setListBuffer(List<Byte> listBuffer) {
-            this.listBuffer = listBuffer;
+        private Context(){
+
         }
+
     }
-
-
 
 }

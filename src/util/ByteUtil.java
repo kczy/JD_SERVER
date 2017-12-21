@@ -79,7 +79,14 @@ public class ByteUtil {
         }
         return value;
     }
-
+    public static String bytesToHexs(byte[] buffer) {
+        StringBuffer sb = new StringBuffer(buffer.length * 2);
+        for (int i = 0; i < buffer.length; i++) {
+            sb.append(" 0x"+Character.forDigit((buffer[i] & 240) >> 4, 16));
+            sb.append(Character.forDigit(buffer[i] & 15, 16));
+        }
+        return sb.toString();
+    }
     public static String byteToUtf8String(byte[] byteArr) {
         String str = null;
         try {
