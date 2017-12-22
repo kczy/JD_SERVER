@@ -65,10 +65,13 @@ public class JDDecoder extends CumulativeProtocolDecoder {
         for (Byte datum : data) {
             checkSum+=datum;
         }
-        System.out.println("校验和："+(checkSum-data.get(data.size()-1))%256+"==="+(data.get(data.size()-1)));
-        return (checkSum-data.get(data.size()-1))%256==data.get(data.size()-1);
+        System.out.println("校验和："+(checkSum-data.get(data.size()-1))%256+"==="+((data.get(data.size()-1))&0xFF));
+        return (checkSum-data.get(data.size()-1))%256==((data.get(data.size()-1))&0xFF);
     }
 
+    public static void main(String[] args) {
+        System.out.println(-61%256);
+    }
 
 
     @Override
