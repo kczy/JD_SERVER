@@ -73,10 +73,5 @@ public class MinaServer {
         }finally {
             acceptor.unbind(new InetSocketAddress(port));
         }
-
-
-
     }
-
-
 }

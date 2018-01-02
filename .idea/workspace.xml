@@ -7,13 +7,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8572c8f3-3dee-41a6-8045-b30da2bf5a4e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$1.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$1.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/kc_jd_drv_jar/mina.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/mina_jar/KC_JD_Drv.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/java/resources/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/MessageHandler$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/MessageHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/MinaServer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/conf/Configuration.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/entity/DeviceAlarm.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/entity/DeviceEnum.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/entity/DeviceName.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/entity/DmDeviceEnum.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/entity/Event.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/entity/Gateway.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/entity/JiadeParams.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/entity/Mcu.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/entity/Package.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/entity/SecurityDeviceResponseVO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/factory/ByteDecodeFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/factory/JDDecoderFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/factory/Remove55DecoderFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/factory/SessionFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/filter/CutDecoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/filter/JDDEncoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/filter/JDDecoder$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/filter/JDDecoder$Context.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/filter/JDDecoder$DEC_FSM_STATUS.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/filter/JDDecoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/filter/JDDecoder9$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/filter/JDDecoder9$Context.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/filter/JDDecoder9.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/filter/Remove55Decoder$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/filter/Remove55Decoder$Context.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/filter/Remove55Decoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/hansen/EventNotify.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/hansen/Outer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/java/resources/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/main/java/resources/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/mqtt/MtClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/mqtt/PushCallback.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/test/Test.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/util/BaseUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/util/ByteUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/util/HttpUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/util/ParseUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/util/ScannerGatawayTask$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mina/util/ScannerGatawayTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/java/resources/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/resources/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/kc_jd_drv_jar/kc_jd_drv.jar" afterPath="$PROJECT_DIR$/out/artifacts/kc_jd_drv_jar/kc_jd_drv.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder$1.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder$Context.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder$Context.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MinaServer.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/MinaServer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/kc_jd_drv_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/kc_jd_drv_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/filter/JDDecoder.java" afterPath="$PROJECT_DIR$/src/filter/JDDecoder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MessageHandler.java" afterPath="$PROJECT_DIR$/src/MessageHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MinaServer.java" afterPath="$PROJECT_DIR$/src/MinaServer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,47 +82,37 @@
       <file leaf-file-name="MessageHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MessageHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1004">
-              <caret line="308" column="60" lean-forward="true" selection-start-line="308" selection-start-column="60" selection-end-line="308" selection-end-column="60" />
+            <state relative-caret-position="66">
+              <caret line="142" column="52" lean-forward="true" selection-start-line="142" selection-start-column="52" selection-end-line="142" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#sessionCreated#0;class#MessageHandler#0" expanded="false" />
-                <element signature="docComment;method#exceptionCaught#0;class#MessageHandler#0" expanded="false" />
-                <element signature="docComment;method#sessionOpened#0;class#MessageHandler#0" expanded="false" />
-                <element signature="docComment;method#messageReceived#0;class#MessageHandler#0" expanded="false" />
+                <element signature="method#sessionCreated#0;class#MessageHandler#0" expanded="false" />
+                <element signature="method#sessionClosed#0;class#MessageHandler#0" expanded="false" />
+                <element signature="method#exceptionCaught#0;class#MessageHandler#0" expanded="false" />
+                <element signature="method#sessionOpened#0;class#MessageHandler#0" expanded="false" />
+                <element signature="method#DbgIfForJd#0;class#MessageHandler#0" expanded="false" />
+                <element signature="method#messageSent#0;class#MessageHandler#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/BaseUtil.java">
+      <file leaf-file-name="MinaServer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MinaServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="100">
+              <caret line="20" column="52" lean-forward="false" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JDDecoder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/filter/JDDecoder.java">
+      <file leaf-file-name="Configuration.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/conf/Configuration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="68" column="88" lean-forward="false" selection-start-line="68" selection-start-column="88" selection-end-line="68" selection-end-column="88" />
-              <folding>
-                <element signature="e#2004#2005#0" expanded="true" />
-                <element signature="e#2047#2048#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScannerGatawayTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/ScannerGatawayTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1000">
-              <caret line="64" column="13" lean-forward="false" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+            <state relative-caret-position="60">
+              <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -99,6 +140,7 @@
       <find>JDDecoderCheckCRC</find>
       <find>pcgNumber</find>
       <find>sendGatawayNoAddSN</find>
+      <find>send</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,8 +202,8 @@
         <option value="$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/core/filterchain/DefaultIoFilterChain.class" />
         <option value="$PROJECT_DIR$/src/factory/SessionFactory.java" />
         <option value="$PROJECT_DIR$/src/util/ScannerGatawayTask.java" />
-        <option value="$PROJECT_DIR$/src/MinaServer.java" />
         <option value="$PROJECT_DIR$/src/filter/JDDecoder.java" />
+        <option value="$PROJECT_DIR$/src/MinaServer.java" />
         <option value="$PROJECT_DIR$/src/MessageHandler.java" />
       </list>
     </option>
@@ -172,10 +214,16 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-9" />
-    <option name="y" value="7" />
-    <option name="width" value="1225" />
+    <option name="x" value="228" />
+    <option name="y" value="3" />
+    <option name="width" value="1156" />
     <option name="height" value="727" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -196,50 +244,43 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="kc_jd_drv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kc_jd_drv" type="462c0819:PsiDirectoryNode" />
+              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="kc_jd_drv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kc_jd_drv" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="kc_jd_drv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kc_jd_drv" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="factory" type="462c0819:PsiDirectoryNode" />
+              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="kc_jd_drv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kc_jd_drv" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
+              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="kc_jd_drv_jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="kc_jd_drv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kc_jd_drv" type="462c0819:PsiDirectoryNode" />
+              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kc_jd_drv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kc_jd_drv" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-              <item name="ScannerGatawayTask.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -546,11 +587,15 @@
       <workItem from="1513750115005" duration="11620000" />
       <workItem from="1513819394284" duration="18822000" />
       <workItem from="1513905890034" duration="3217000" />
+      <workItem from="1514251535692" duration="4076000" />
+      <workItem from="1514529126395" duration="2891000" />
+      <workItem from="1514805249000" duration="3675000" />
+      <workItem from="1514856174455" duration="4154000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="632805000" />
+    <option name="totallyTimeSpent" value="647601000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -562,7 +607,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="7" width="1225" height="727" extended-state="1" />
+    <frame x="228" y="3" width="1156" height="727" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -570,18 +615,18 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.316847" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24328358" sideWeight="0.5030675" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3321492" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3996724" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6630603" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.251932" sideWeight="0.4969325" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.07457627" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46779662" sideWeight="0.4969325" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24120171" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23448905" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24886878" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18983051" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952547" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18983051" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -663,19 +708,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>447</line>
+          <line>446</line>
           <properties />
           <option name="timeStamp" value="204" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>448</line>
+          <line>447</line>
           <properties />
           <option name="timeStamp" value="205" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>449</line>
+          <line>448</line>
           <properties />
           <option name="timeStamp" value="206" />
         </line-breakpoint>
@@ -843,13 +888,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MinaEventHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/factory/JDDecoderFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/filter/JDDEncoder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
@@ -880,27 +918,9 @@
     </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_144/src.zip!/java/util/Timer.java" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_144/src.zip!/java/util/TimerTask.java" />
-    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/resources/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/resources/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+    <entry file="file://$PROJECT_DIR$/src/java/resources/META-INF/MANIFEST.MF" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/resources/META-INF/MANIFEST.MF" />
     <entry file="jar://$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/core/session/IoSession.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -945,13 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/conf/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/core/filterchain/DefaultIoFilterChain.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
@@ -978,19 +991,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-          <folding>
-            <element signature="e#333#351#0" expanded="false" />
-            <element signature="e#392#393#0" expanded="false" />
-            <element signature="e#418#419#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MinaServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="37" column="50" lean-forward="false" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -998,7 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1000">
           <caret line="64" column="13" lean-forward="false" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,10 +1005,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
           <caret line="68" column="88" lean-forward="false" selection-start-line="68" selection-start-column="88" selection-end-line="68" selection-end-column="88" />
-          <folding>
-            <element signature="e#2004#2005#0" expanded="true" />
-            <element signature="e#2047#2048#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1017,20 +1012,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/conf/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/factory/JDDecoderFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MinaServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="20" column="52" lean-forward="false" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MessageHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1004">
-          <caret line="308" column="60" lean-forward="true" selection-start-line="308" selection-start-column="60" selection-end-line="308" selection-end-column="60" />
+        <state relative-caret-position="66">
+          <caret line="142" column="52" lean-forward="true" selection-start-line="142" selection-start-column="52" selection-end-line="142" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#sessionCreated#0;class#MessageHandler#0" expanded="false" />
-            <element signature="docComment;method#exceptionCaught#0;class#MessageHandler#0" expanded="false" />
-            <element signature="docComment;method#sessionOpened#0;class#MessageHandler#0" expanded="false" />
-            <element signature="docComment;method#messageReceived#0;class#MessageHandler#0" expanded="false" />
+            <element signature="method#sessionCreated#0;class#MessageHandler#0" expanded="false" />
+            <element signature="method#sessionClosed#0;class#MessageHandler#0" expanded="false" />
+            <element signature="method#exceptionCaught#0;class#MessageHandler#0" expanded="false" />
+            <element signature="method#sessionOpened#0;class#MessageHandler#0" expanded="false" />
+            <element signature="method#DbgIfForJd#0;class#MessageHandler#0" expanded="false" />
+            <element signature="method#messageSent#0;class#MessageHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>

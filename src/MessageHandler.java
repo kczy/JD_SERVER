@@ -142,7 +142,7 @@ public class MessageHandler extends IoHandlerAdapter {
                 Long sendTime= (Long) session.getAttribute("sendTime");
                 session.removeAttribute("sendTime");
                 sendTime=new Date().getTime()-sendTime;
-                if(sendTime>180){
+                if(sendTime>180000){
                     SessionFactory.getSessionMap().remove(session.getAttribute(Constant.SESSION_ATTR_KEY_GW_SN));
                     session.closeNow();
                 }
@@ -433,13 +433,12 @@ public class MessageHandler extends IoHandlerAdapter {
         JiadeParams params = new JiadeParams(type, list);
         String jsonString = gson.toJson(params);
         log.info("设备列表json：" + jsonString);
-//        try {
-//            HttpUtil.doPostStr("http://192.168.1.175:8080/device/elder/security/security-device-jiade-impl", jsonString);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            HttpUtil.doPostStr("http://120.77.215.202:8888/device/elder/security/security-device-jiade-impl", jsonString);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
 
     public void delDevice(byte[] bts) {
         //-1 -1 0 16 33 101 49 52 99 99 48 -74 -15 42 16 0 75 18 0 0
