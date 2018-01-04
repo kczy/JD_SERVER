@@ -143,8 +143,10 @@ public class MessageHandler extends IoHandlerAdapter {
                 session.removeAttribute("sendTime");
                 sendTime=new Date().getTime()-sendTime;
                 if(sendTime>180000){
-                    SessionFactory.getSessionMap().remove(session.getAttribute(Constant.SESSION_ATTR_KEY_GW_SN));
+                    //如果超时3翻钟，则关闭当前会话，并从集合中移除
                     session.closeNow();
+                    SessionFactory.getSessionMap().remove(session.getAttribute(Constant.SESSION_ATTR_KEY_GW_SN));
+                    session.getService().getManagedSessions().remove(session.getId());
                 }
                 break;
             case JD_MSG_CMD_UP_TIME:/*获取时间*/
@@ -177,7 +179,7 @@ public class MessageHandler extends IoHandlerAdapter {
 
                 break;
             case JD_MSG_CMD_UP_GW_SN://上报网关信息：序列号
-                String ID = ParseUtil.getID(bts);
+                String ID = ParseUtil.getID(bts);//截取序列号
                 log.info("\n收到网关序列号:" + ID);
 
                 SessionFactory.getSessionMap().put(ID, session);
@@ -249,17 +251,18 @@ public class MessageHandler extends IoHandlerAdapter {
                             }, 60000, 10000);
                             break;
                         case Constant.SESSION_ATTR_VAL_GW_TYPE_RF:
-                            if(bts.length<13) {
-                                    /*返回服务器ACK*/
-                                    sendGatawayNoAddSN(session, "FFFF0003030000");
-                                    return;
-                            }
+                                //紧急按钮
+                                sendGataway(sessionadd,"FFFF000A1F"+sessionadd.getAttribute(Constant.SESSION_ATTR_KEY_GW_SN)+"2C0009");
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+                            if(bts.length<13) { return;}
                             byte[]  addRfDeviceMsg={(byte)0xFF,(byte)0xFF,(byte)0x00,(byte)0x11,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x05,
                                     (byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x00,
                                     (byte)0x00,(byte)0x00};
                             addRfDeviceMsg[18]=bts[11];
                             addRfDeviceMsg[19]=bts[12];
                             sendGatawayThroughByts(sessionadd, addRfDeviceMsg);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
                             break;
                         default:
                             break;
@@ -296,7 +299,6 @@ public class MessageHandler extends IoHandlerAdapter {
                 DbgIfForJd(session, bts);
                 break;
             default:
-
                 log.info("No deal Msg:" + ByteUtil.bytesToHexs(bts));
                 break;
         }
@@ -385,7 +387,7 @@ public class MessageHandler extends IoHandlerAdapter {
         for (int i = 2; i < data.length - 1; i++) {
             checkSum += data[i];
         }
-        data[data.length - 1] = (byte) (checkSum % 255);
+        data[data.length - 1] = (byte) (checkSum % 256);
         IoBuffer buffer = IoBuffer.allocate(data.length);
         buffer.setAutoExpand(false);
         buffer.put(data);
@@ -402,7 +404,7 @@ public class MessageHandler extends IoHandlerAdapter {
         for (int i = 2; i < HexData.length - 1; i++) {
             checkSum += HexData[i];
         }
-        HexData[HexData.length - 1] = (byte) (checkSum % 255);
+        HexData[HexData.length - 1] = (byte) (checkSum % 256);
         IoBuffer buffer = IoBuffer.allocate(HexData.length);
         buffer.setAutoExpand(false);
         buffer.put(HexData);
@@ -421,7 +423,7 @@ public class MessageHandler extends IoHandlerAdapter {
         for (int i = 2; i < data.length - 1; i++) {
             checkSum += data[i];
         }
-        data[data.length - 1] = (byte) (checkSum % 255);
+        data[data.length - 1] = (byte) (checkSum % 256);
         IoBuffer buffer = IoBuffer.allocate(HexData.length());
         buffer.setAutoExpand(false);
         buffer.put(data);
@@ -463,8 +465,4 @@ public class MessageHandler extends IoHandlerAdapter {
         }
     }
 
-    public static void main(String[] args) {
-        MessageHandler handler=new MessageHandler();
-        //sendGatawayNoAddSN("FFFF00080324000005030138");
-    }
 }

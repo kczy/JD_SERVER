@@ -3,7 +3,7 @@ package util;
 public class Constant {
 
     public final static String   SESSION_ATTR_KEY_GW_SN="sno";
-    public final static String   SESSION_ATTR_KEY_GW_TYPE="gt";/*设备类型*/
+    public  static String   SESSION_ATTR_KEY_GW_TYPE="gt";/*设备类型*/
 
     public final static int   SESSION_ATTR_VAL_GW_TYPE_RF=0x32;/*rf设备*/
     public final static int   SESSION_ATTR_VAL_GW_TYPE_ZIGBEE=0x31;/*zigbee设备*/

@@ -70,7 +70,7 @@ public class JDDecoder extends CumulativeProtocolDecoder {
     }
 
     public static void main(String[] args) {
-        System.out.println(-61%256);
+        System.out.println(257%256);
     }
 
 
@@ -144,11 +144,13 @@ public class JDDecoder extends CumulativeProtocolDecoder {
                             lsBuffer.clear();
                         } else {
                             ctx.decFsm = DEC_FSM_STATUS.DEC_FIND_HEAD;
+                            lsBuffer.clear();
                         }
                     }
                     break;
                 default:
                     ctx.decFsm=DEC_FSM_STATUS.DEC_FIND_HEAD;
+                    lsBuffer.clear();
                     break;
             }
 
