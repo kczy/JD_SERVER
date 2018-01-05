@@ -65,12 +65,13 @@ public class JDDecoder extends CumulativeProtocolDecoder {
         for (Byte datum : data) {
             checkSum+=datum;
         }
-        System.out.println("校验和："+(checkSum-data.get(data.size()-1))%256+"==="+((data.get(data.size()-1))&0xFF));
-        return (checkSum-data.get(data.size()-1))%256==((data.get(data.size()-1))&0xFF);
+        System.out.println("校验和："+((   (checkSum-data.get(data.size()-1))%256   )&0xFF)+"==="+((data.get(data.size()-1))&0xFF));
+        return ((   (checkSum-data.get(data.size()-1))%256   )&0xFF)==((data.get(data.size()-1))&0xFF);
     }
 
     public static void main(String[] args) {
-        System.out.println(257%256);
+        //System.out.println(-110&0xFF);//146
+        //System.out.println(-110&0xFF);
     }
 
 
@@ -126,8 +127,8 @@ public class JDDecoder extends CumulativeProtocolDecoder {
                 case DEC_GET_MSG_LEN_LSB:
                     lsBuffer.add(b);
                     ctx.decFsm=DEC_FSM_STATUS.DEC_RCV_CTX;
-                    ctx.msgLen=(lsBuffer.get(0)<<8)|lsBuffer.get(1);
-
+                    ctx.msgLen=((lsBuffer.get(0)<<8)&0xFF00)|(lsBuffer.get(1)&0xFF);
+                    System.out.println("ctx.msgLen="+ctx.msgLen);
                     break;
                 case DEC_RCV_CTX:/*内容*/
                     ctx.msgLen--;

@@ -25,9 +25,10 @@ public class MessageHandler extends IoHandlerAdapter {
     private final int JD_MSG_CMD_UP_DEV_STATUS = 5;
     private final int JD_MSG_CMD_UP_TIME = 0x17;
     /*TODO:相关指令存在误触发（JD协议里面有CMD=该字段）*/
-    private final int KC_MSG_CMD_ADD_DEV = 81;
-    private final int KC_MSG_CMD_CHECK_GW_EXSIT = 82;
+    private final int KC_MSG_CMD_ADD_DEV = 81;          //添加网关
+    private final int KC_MSG_CMD_CHECK_GW_EXSIT = 82;   //检查网关是否存在或在线
     private final int KC_MSG_CMD_DEK_DEV = 83;
+    private final int KC_MSG_CMD_SELECT_LIST=84;        //查询子设备列表
 
     private final int JD_MSG_CMD_ACTION_INDEX = 8;//网关回复心跳
     private final int JD_MSG_CMD_ACTION_TF = 6;/*透传指令*/
@@ -78,17 +79,24 @@ public class MessageHandler extends IoHandlerAdapter {
         }
         //连接关闭后网关为离线，讲连接对象从map中移除
         SessionFactory.getSessionMap().remove(session.getAttribute(Constant.SESSION_ATTR_KEY_GW_SN));
+        session.getService().getManagedSessions().remove(session.getId());
     }
 
 
     @Override
     public void sessionIdle(IoSession session, IdleStatus status) throws Exception {
         log.log(Level.SEVERE, "session  IDLE.......");
-        /*用于心跳通信，维持链路*/
-        Long sendTime= (Long) session.getAttribute("sendTime");
-        if(sendTime==null){
-            session.setAttribute("sendTime",new Date().getTime());
+        Long receiveTime= (Long) session.getAttribute("receiveTime");
+        if(receiveTime==null){
+            return;
         }
+        receiveTime=new Date().getTime()-receiveTime;
+        if(receiveTime>180000){
+            //如果超时3翻钟，则关闭当前会话，并从集合中移除
+            session.closeNow();
+            return;
+        }
+        /*用于心跳通信，维持链路*/
         sendGataway(session, "FFFF00050700000000");
     }
 
@@ -132,22 +140,19 @@ public class MessageHandler extends IoHandlerAdapter {
      */
     @Override
     public void messageReceived(IoSession session, Object message) throws Exception {
+        //记录最后一次接收消息的时间
+        if(session.getAttribute("receiveTime")!=null){
+            session.removeAttribute("receiveTime");
+        }
+        session.setAttribute("receiveTime",new Date().getTime());
+
         byte[] bts = (byte[]) message;
         System.out.println(session.getRemoteAddress().toString() + "\nRcv Msg" + ByteUtil.bytesToHexs(bts));
 
         switch (bts[JD_MSG_CMD_INDEX]) {
-
             //如果网关回复心跳时间超过三分钟就移除当前session
             case JD_MSG_CMD_ACTION_INDEX:
-                Long sendTime= (Long) session.getAttribute("sendTime");
-                session.removeAttribute("sendTime");
-                sendTime=new Date().getTime()-sendTime;
-                if(sendTime>180000){
-                    //如果超时3翻钟，则关闭当前会话，并从集合中移除
-                    session.closeNow();
-                    SessionFactory.getSessionMap().remove(session.getAttribute(Constant.SESSION_ATTR_KEY_GW_SN));
-                    session.getService().getManagedSessions().remove(session.getId());
-                }
+                log.info("收到心跳回复");
                 break;
             case JD_MSG_CMD_UP_TIME:/*获取时间*/
                 log.info("Dev adjust time   request\r\n");
@@ -187,7 +192,7 @@ public class MessageHandler extends IoHandlerAdapter {
                 session.setAttribute(Constant.SESSION_ATTR_KEY_GW_TYPE, ParseUtil.GetGwType(bts));/*保存类型*/
 
                  /*TODO：需要更新网关在线状态*/
-                /*查询子设备信息*/
+                /*查询子设备列表信息*/
                 sendGataway(session, "FFFF00080324000005030138");
                 break;
             case JD_MSG_CMD_UP_GW_SN_ACK://设备回复收到了，不需要解析
@@ -210,7 +215,7 @@ public class MessageHandler extends IoHandlerAdapter {
                     if (bts[9] == 1) {
                         log.info("单个子设备上报");
                     } else if (bts[9] == 4) {
-                        System.out.println("\n子设备列表上报(保存至session):");
+                        System.out.println("\n子设备列表上报:");
                         List<SecurityDeviceResponseVO> devices = ParseUtil.getDevices(bts, session);
                         send(0, devices);
                         //解析包含报警的设备放入temp
@@ -295,6 +300,9 @@ public class MessageHandler extends IoHandlerAdapter {
                 //-1 -1 0 16 33 101 49 52 99 99 48 -74 -15 42 16 0 75 18 0 0
                 delDevice(bts);
                 break;
+            case KC_MSG_CMD_SELECT_LIST://查询设备列表
+                sendGataway(session, "FFFF00080324000005030138");//查询设备列表
+                break;
             case KC_MSG_DBG_CMD:
                 DbgIfForJd(session, bts);
                 break;
@@ -352,6 +360,7 @@ public class MessageHandler extends IoHandlerAdapter {
 //        log.info("消息发送完毕buffer.remaining()：" + buffer.remaining());
 //        log.info("消息发送完毕buffer.limit()：" + buffer.limit());
 //        log.info("消息发送完毕buffer.position()：" + buffer.position());
+        System.out.println("\nsend data: "+buffer.toString());
         log.info(session.getRemoteAddress().toString() + "Send MSG" + String.valueOf(message));
     }
 
@@ -375,7 +384,6 @@ public class MessageHandler extends IoHandlerAdapter {
      * @param HexData
      */
     public void sendGataway(IoSession session, String HexData) {
-
         byte[] data = BaseUtil.toByteArray(HexData);
 
         byte pcgNumber = (byte) session.getAttribute("pcgNumber");
@@ -436,7 +444,7 @@ public class MessageHandler extends IoHandlerAdapter {
         String jsonString = gson.toJson(params);
         log.info("设备列表json：" + jsonString);
         try {
-            HttpUtil.doPostStr("http://120.77.215.202:8888/device/elder/security/security-device-jiade-impl", jsonString);
+            HttpUtil.doPostStr("http://lib18610386362.oicp.net/icare-device-api/device/elder/security/security-device-jiade-impl", jsonString);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -460,7 +468,7 @@ public class MessageHandler extends IoHandlerAdapter {
         if (session != null) {
             sendGataway(
                     session,
-                    "FFFF000F036700000502" + macStr + "F1"
+                    "FFFF0000036700000502" + macStr + "F1"
             );
         }
     }

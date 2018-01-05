@@ -36,7 +36,7 @@ public class MinaServer {
         IoSessionConfig cfg = acceptor.getSessionConfig();
 
         // 读写通道30秒内无操作进入空闲状态,进入空闲后立马发送嘉德指定的心跳包维持连接
-        cfg.setIdleTime(IdleStatus.BOTH_IDLE, 30);
+        cfg.setIdleTime(IdleStatus.BOTH_IDLE, 60);
 
         //设置读取缓冲区大小
         cfg.setReadBufferSize(1024);//越小越看出问题
