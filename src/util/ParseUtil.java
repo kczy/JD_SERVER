@@ -93,12 +93,13 @@ public class ParseUtil {
 
 
     public static List<SecurityDeviceResponseVO> getDevices(byte[] bts,IoSession session) {
+
         List<SecurityDeviceResponseVO> responseVOList = new ArrayList<>();
         //resultArr获得列表数据包，开始解析
         for(int i=0;i<bts[11];i++){//设备个数，循环(有多少设备就循环多少次)
             SecurityDeviceResponseVO stateVO=new SecurityDeviceResponseVO();
             //设置网关地址
-            stateVO.setSno((String) session.getAttribute("sno"));
+            stateVO.setSno((String) session.getAttribute(Constant.SESSION_ATTR_KEY_GW_SN));
             //安全设备的IP地址
             stateVO.setAddress(session.getRemoteAddress().toString());
             //设置ieee地址

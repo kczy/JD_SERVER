@@ -216,6 +216,12 @@ public class MessageHandler extends IoHandlerAdapter {
                         log.info("单个子设备上报");
                     } else if (bts[9] == 4) {
                         System.out.println("\n子设备列表上报:");
+                        /*TUDO*/
+                        //目前只处理第一组包，后面如果嘉德有32个子设备就需要合并第二组包到集合
+                        if(bts[10]==2){
+                            System.out.println("第二组包不解..........");
+                            return;
+                        }
                         List<SecurityDeviceResponseVO> devices = ParseUtil.getDevices(bts, session);
                         send(0, devices);
                         //解析包含报警的设备放入temp
