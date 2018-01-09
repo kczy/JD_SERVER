@@ -144,7 +144,7 @@ public class MessageHandler extends IoHandlerAdapter {
     public void messageReceived(IoSession session, Object message) throws Exception {
         ///////////记录网关的包序////////////
             Integer rps= (Integer) session.getAttribute("receive_package_serial");
-            System.out.println("\n------------->   接收的包序："+(++rps)+"   <-------------------");
+            System.out.println("\n-------------------->   接收的包序："+(++rps)+"   ");
             session.setAttribute("receive_package_serial",rps);
         ///////////////////////////////////
 
@@ -270,8 +270,8 @@ public class MessageHandler extends IoHandlerAdapter {
                             }, 60000, 10000);
                             break;
                         case Constant.SESSION_ATTR_VAL_GW_TYPE_RF:
-                                //紧急按钮
-                                sendGataway(sessionadd,"FFFF000A1F"+sessionadd.getAttribute(Constant.SESSION_ATTR_KEY_GW_SN)+"2C0009");
+                            //紧急按钮
+                            sendGataway(sessionadd,"FFFF000A1F"+sessionadd.getAttribute(Constant.SESSION_ATTR_KEY_GW_SN)+"2C0009");
 
  //////////////////////////////////////////////////////////////////////////////////////////////////////////
                             if(bts.length<13) { return;}
@@ -315,7 +315,17 @@ public class MessageHandler extends IoHandlerAdapter {
                 delDevice(bts);
                 break;
             case KC_MSG_CMD_SELECT_LIST://查询设备列表
-                sendGataway(session, "FFFF00080324000005030138");//查询设备列表
+                /*
+                /*
+                * 检查网关是否存在。写出对应的指令
+                * */
+                StringBuilder snoStrSB = new StringBuilder();
+                for (int i = 5; i < 11; i++) {
+                    snoStrSB.append(BaseUtil.encodeHexStr(bts[i]));
+                }
+                String snoString = snoStrSB.toString();
+                IoSession session_SlectList = (IoSession) SessionFactory.getSessionMap().get(snoString);
+                sendGataway(session_SlectList, "FFFF00080324000005030138");//查询设备列表
                 break;
             case KC_MSG_DBG_CMD:
                 DbgIfForJd(session, bts);
@@ -374,7 +384,7 @@ public class MessageHandler extends IoHandlerAdapter {
 //        log.info("消息发送完毕buffer.remaining()：" + buffer.remaining());
 //        log.info("消息发送完毕buffer.limit()：" + buffer.limit());
 //        log.info("消息发送完毕buffer.position()：" + buffer.position());
-        System.out.println("\nsend data: \n");
+        System.out.println("\n           send data:   回复的包序："+session.getAttribute("pcgNumber")+"  <------------------------\n");
 
         for (int i = 0; i <buffer.array().length ; i++) {
             System.out.print(buffer.array()[i]+" ");

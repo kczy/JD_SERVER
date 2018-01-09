@@ -106,6 +106,7 @@ public enum DmDeviceEnum {
         if(code == 0x8AAA) {
             return 0x0403;
         }
-        return 0;
+
+        return 0x0404;
     }
 }
