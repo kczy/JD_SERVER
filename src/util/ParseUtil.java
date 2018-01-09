@@ -128,14 +128,12 @@ public class ParseUtil {
             stateVO.setState(isOn);
             stateVO.setClusterId(isOn);
 
-            int isElectric=bArr[7-2]==1?1:0;
+            int isElectric=bArr[7-2]==1?2:0;
             stateVO.setElectric(isElectric);
             //加入
             responseVOList.add(stateVO);
         }
-
         //System.out.println(responseVOList);
-
         return responseVOList;
     }
 

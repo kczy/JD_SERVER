@@ -233,7 +233,7 @@ public class MessageHandler extends IoHandlerAdapter {
                             }
                         }
                         if (temp != null && temp.size() > 0) {
-                            send(1, devices);
+                            send(1, temp);
                         }
                     }
                 }
@@ -366,7 +366,11 @@ public class MessageHandler extends IoHandlerAdapter {
 //        log.info("消息发送完毕buffer.remaining()：" + buffer.remaining());
 //        log.info("消息发送完毕buffer.limit()：" + buffer.limit());
 //        log.info("消息发送完毕buffer.position()：" + buffer.position());
-        System.out.println("\nsend data: "+buffer.toString());
+        System.out.println("\nsend data: \n");
+
+        for (int i = 0; i <buffer.array().length ; i++) {
+            System.out.print(buffer.array()[i]+" ");
+        }
         log.info(session.getRemoteAddress().toString() + "Send MSG" + String.valueOf(message));
     }
 
@@ -433,6 +437,7 @@ public class MessageHandler extends IoHandlerAdapter {
      */
     public void sendGatawayNoAddSN(IoSession session, String HexData) {
         byte[] data = BaseUtil.toByteArray(HexData);
+
         int checkSum = 0;
         for (int i = 2; i < data.length - 1; i++) {
             checkSum += data[i];
@@ -467,14 +472,27 @@ public class MessageHandler extends IoHandlerAdapter {
         String snoStr = ByteUtil.bytesToHexString(sno);
         IoSession session = (IoSession) SessionFactory.getSessionMap().get(snoStr);
         byte[] mac = new byte[8];
-        for (int i = 11, j = 0; i < 19; i++, j++) {
+        for (int i = 13, j = 0; i < 20; i++, j++) {
             mac[j] = bts[i];
         }
         String macStr = ByteUtil.bytesToHexString(mac);
+
+        byte[] zontype=new byte[2];
+        zontype[0]=bts[28];
+        zontype[1]=bts[29];
+        String zontypeStr = ByteUtil.bytesToHexString(zontype);
         if (session != null) {
             sendGataway(
                     session,
-                    "FFFF0000036700000502" + macStr + "F1"
+                    "FFFF00180305000005"+
+                            "02" + //透传命令
+                            macStr + //透传IEEEE
+                            "0000" + //透传填充短地址
+                            "00" + //透传填充endpoeint
+                            "0000" + //透传填充ProfileID
+                            "0000" + //透传填充DeviceID
+                            zontypeStr + //透传填充ZoneType
+                            "F1"
             );
         }
     }
