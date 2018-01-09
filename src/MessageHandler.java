@@ -126,7 +126,9 @@ public class MessageHandler extends IoHandlerAdapter {
         log.info("【连接打开，服务器发送获取网关指令：" + "FF FF 00 05 01 00 00 00 06" + "   " + new Date().toString() + "】");
          /*下发查询设备网关序列号*/
         sendGataway(session, "FFFF00050100000006");
-
+        ///////////记录网关的包序////////////
+        session.setAttribute("receive_package_serial",0);
+        ///////////////////////////////////
 
     }
 
@@ -140,6 +142,12 @@ public class MessageHandler extends IoHandlerAdapter {
      */
     @Override
     public void messageReceived(IoSession session, Object message) throws Exception {
+        ///////////记录网关的包序////////////
+            Integer rps= (Integer) session.getAttribute("receive_package_serial");
+            System.out.println("\n------------->   接收的包序："+(++rps)+"   <-------------------");
+            session.setAttribute("receive_package_serial",rps);
+        ///////////////////////////////////
+
         //记录最后一次接收消息的时间
         if(session.getAttribute("receiveTime")!=null){
             session.removeAttribute("receiveTime");
