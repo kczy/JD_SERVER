@@ -1,11 +1,13 @@
 package util;
 
+import entity.DeviceState;
 import entity.Gateway;
 import entity.Mcu;
 import entity.SecurityDeviceResponseVO;
 import org.apache.mina.core.session.IoSession;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ParseUtil {
@@ -153,4 +155,55 @@ public class ParseUtil {
         return bs;
     }
 
+    public static DeviceState parseStatus(byte[] bts) {
+
+        DeviceState deviceState=  new DeviceState();
+
+        bts= Arrays.copyOfRange(bts,9,33);
+
+        byte[] bs=byte2CharArr(bts[0]&0xff);
+        deviceState.setSrnOn(bs[8-1]==1?1:0);//是否告警
+        deviceState.setErolling(bs[8-2]==1?1:0);//是否开网
+        deviceState.setFactoryReset(bs[8-3]==1?1:0);//是否重置
+        deviceState.setSmsControl(bs[8-4]==1?1:0);
+        deviceState.setArmState(Integer.parseInt(bs[8-6]+""+bs[8-5],2));
+
+        deviceState.setSystemLanguage(bts[1]&0xff);//设置系统语言
+        deviceState.setSetTimeSrnOn(Integer.parseInt(bts[2]+""+bts[3],16));
+        deviceState.setArmDly(Integer.parseInt(bts[4]+""+bts[5],16));
+        deviceState.setAlmDly(Integer.parseInt(bts[6]+""+bts[7],16));
+
+        byte[] bs8=byte2CharArr(bts[8]&0xff);
+        byte[] bs9=byte2CharArr(bts[9]&0xff);
+        bs=new byte[16];
+        for (int i = 0; i < bs8.length; i++) {
+            bs[i]=bs8[i];
+        }
+        for (int i = 8,j=0; j < bs9.length; i++,j++) {
+            bs[i]=bs9[j];
+        }
+        deviceState.setSoftap(bs[16-1]==1?1:0);
+        deviceState.setArmDlyg(bs[16-2]==1?1:0);
+        deviceState.setAlmDlyg(bs[16-3]==1?1:0);
+        deviceState.setOtaUpgrading(bs[16-4]==1?1:0);
+        deviceState.setGsmSimCheck(bs[16-5]==1?1:0);
+        deviceState.setGsmSearchNetwork(bs[16-6]==1?1:0);
+        deviceState.setPushAlarm(bs[16-7]==1?1:0);
+        //deviceState.setArmState(Integer.parseInt(bs[8-6]+""+bs[8-5],2));
+        String rssiStr=bs[16-10]+""+bs[16-9]+""+bs[16-8];
+        Integer rssiInt=Integer.parseInt(rssiStr,2);
+        deviceState.setRssi(rssiInt);
+        //deviceState.setAlms(Integer.parseInt(""+(bts[10]&0xff),16));
+        deviceState.setAlms(bts[10]&0xff);
+        deviceState.setGsmCsq(bts[11]&0xff);
+        deviceState.setDeviceType(bts[12]&0xff);
+        deviceState.setPushID(bts[13]&0xff);
+//        String tmSrnEndStr = (bts[14]&0xff)+""+(bts[15]&0xff);
+//        Integer tmSrnEndInt= Integer.parseInt(tmSrnEndStr,16);
+        deviceState.setTmSrnEnd(Integer.parseInt((bts[14]&0xff)+""+(bts[15]&0xff),16));
+        deviceState.setTmArmDlyEnd(Integer.parseInt((bts[16]&0xff)+""+(bts[17]&0xff),16));
+        deviceState.setTmAlmDlyEnd(Integer.parseInt((bts[18]&0xff)+""+(bts[19]&0xff),16));
+
+        return deviceState;
+    }
 }

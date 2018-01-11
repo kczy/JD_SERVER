@@ -211,9 +211,13 @@ public class MessageHandler extends IoHandlerAdapter {
                 log.info("Get Device msg 05");
                 log.info("Send  Ack to Device");
                 sendGatawayNoAddSN(session, "FFFF000506" + BaseUtil.encodeHexStr(bts[5]) + "00000C");
+
+                DeviceState deviceState=ParseUtil.parseStatus(bts);
+                System.out.println("\n网关主动上报当前状态：\n"+deviceState);
+
                 if (bts[JD_MSG_CMD_ACTION_INDEX] == JD_MSG_CMD_ACTION_NOT_TF) {//非透传解析
                     Gateway gateway = ParseUtil.getGateway(bts);
-                    if (gateway.isSrnOn()) {
+                    if (deviceState.getSrnOn()==1) {
                         System.out.println("设备报警了.....");
                         //设备一旦报警就下发请求列表
                         sendGataway(session, "FFFF00080324000005030138");
@@ -413,12 +417,10 @@ public class MessageHandler extends IoHandlerAdapter {
      */
     public void sendGataway(IoSession session, String HexData) {
         byte[] data = BaseUtil.toByteArray(HexData);
-
         byte pcgNumber = (byte) session.getAttribute("pcgNumber");
         pcgNumber = (++pcgNumber) > 255 ? 0 : pcgNumber;
         data[5] = pcgNumber;
         session.setAttribute("pcgNumber", pcgNumber);
-
         int checkSum = 0;
         for (int i = 2; i < data.length - 1; i++) {
             checkSum += data[i];
@@ -455,7 +457,6 @@ public class MessageHandler extends IoHandlerAdapter {
      */
     public void sendGatawayNoAddSN(IoSession session, String HexData) {
         byte[] data = BaseUtil.toByteArray(HexData);
-
         int checkSum = 0;
         for (int i = 2; i < data.length - 1; i++) {
             checkSum += data[i];
