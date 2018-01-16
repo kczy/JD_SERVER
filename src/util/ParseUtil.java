@@ -169,9 +169,9 @@ public class ParseUtil {
         deviceState.setArmState(Integer.parseInt(bs[8-6]+""+bs[8-5],2));
 
         deviceState.setSystemLanguage(bts[1]&0xff);//设置系统语言
-        deviceState.setSetTimeSrnOn(Integer.parseInt(bts[2]+""+bts[3],16));
-        deviceState.setArmDly(Integer.parseInt(bts[4]+""+bts[5],16));
-        deviceState.setAlmDly(Integer.parseInt(bts[6]+""+bts[7],16));
+        deviceState.setSetTimeSrnOn(Integer.parseInt((bts[2]&0xff)+""+(bts[3]&0xff),10));
+        deviceState.setArmDly(Integer.parseInt((bts[4]&0xff)+""+(bts[5]&0xff),10));
+        deviceState.setAlmDly(Integer.parseInt((bts[6]&0xff)+""+(bts[7]&0xff),10));
 
         byte[] bs8=byte2CharArr(bts[8]&0xff);
         byte[] bs9=byte2CharArr(bts[9]&0xff);
@@ -200,9 +200,9 @@ public class ParseUtil {
         deviceState.setPushID(bts[13]&0xff);
 //        String tmSrnEndStr = (bts[14]&0xff)+""+(bts[15]&0xff);
 //        Integer tmSrnEndInt= Integer.parseInt(tmSrnEndStr,16);
-        deviceState.setTmSrnEnd(Integer.parseInt((bts[14]&0xff)+""+(bts[15]&0xff),16));
-        deviceState.setTmArmDlyEnd(Integer.parseInt((bts[16]&0xff)+""+(bts[17]&0xff),16));
-        deviceState.setTmAlmDlyEnd(Integer.parseInt((bts[18]&0xff)+""+(bts[19]&0xff),16));
+        deviceState.setTmSrnEnd(Integer.parseInt((bts[14]&0xff)+""+(bts[15]&0xff),10));
+        deviceState.setTmArmDlyEnd(Integer.parseInt((bts[16]&0xff)+""+(bts[17]&0xff),10));
+        deviceState.setTmAlmDlyEnd(Integer.parseInt((bts[18]&0xff)+""+(bts[19]&0xff),10));
 
         return deviceState;
     }

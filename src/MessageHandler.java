@@ -29,6 +29,7 @@ public class MessageHandler extends IoHandlerAdapter {
     private final int KC_MSG_CMD_CHECK_GW_EXSIT = 82;   //检查网关是否存在或在线
     private final int KC_MSG_CMD_DEK_DEV = 83;
     private final int KC_MSG_CMD_SELECT_LIST=84;        //查询子设备列表
+    private final int KC_MSG_CMD_CONTROL_HOWL=85;       //控制设备鸣叫
 
     private final int JD_MSG_CMD_ACTION_INDEX = 8;//网关回复心跳
     private final int JD_MSG_CMD_ACTION_TF = 6;/*透传指令*/
@@ -130,6 +131,45 @@ public class MessageHandler extends IoHandlerAdapter {
         session.setAttribute("receive_package_serial",0);
         ///////////////////////////////////
 
+        ///////下发指令不准网关叫//////////
+        //FF FF    包头
+        // 00 10    长度
+        // 03       命令
+        // 3F       序号
+        // 00 00    flags
+        // 01       action
+        // 00       attr_flags
+        // 01       attr_flags
+        // 00
+        // 00
+        // 00
+        // 00
+        // 00
+        // 00
+        // 00
+        // 00
+        // 54       校验和
+        byte[] cmd={(byte)0xFF,(byte)0xFF,//包头
+                (byte)0x00,(byte)0x10,      //包长度
+                (byte)0x03,                 //命令
+                (byte)0x00,                 //包序号
+                (byte)0x00,(byte)0x00,      //flags
+                (byte)0x01,                 //action
+                (byte)0x00,                 //attr_flags 11111111
+                (byte)0x01,                 //attr_flags 11111111
+                (byte)0x00,                 //attr_vals  byte0 00000000
+                (byte)0x00,                 //attr_vals  byte1
+                (byte)0x00,                 //attr_vals  byte2 00000000
+                (byte)0x00,                 //attr_vals  byte3 00000000
+                (byte)0x00,                 //attr_vals  byte4
+                (byte)0x00,                 //attr_vals  byte5
+                (byte)0x00,                 //attr_vals  byte6
+                (byte)0x00,                 //attr_vals  byte7
+                (byte)0x54                  //校验和
+        };
+        sendGatawayThroughByts(session,cmd);
+        //FFFF 0010 03 22 0000 01 00 02 02000000000000003A 开网指令，异曲同工
+        /////////////////////////////////
     }
 
 
@@ -212,11 +252,10 @@ public class MessageHandler extends IoHandlerAdapter {
                 log.info("Send  Ack to Device");
                 sendGatawayNoAddSN(session, "FFFF000506" + BaseUtil.encodeHexStr(bts[5]) + "00000C");
 
-                DeviceState deviceState=ParseUtil.parseStatus(bts);
-                System.out.println("\n网关主动上报当前状态：\n"+deviceState);
-
                 if (bts[JD_MSG_CMD_ACTION_INDEX] == JD_MSG_CMD_ACTION_NOT_TF) {//非透传解析
                     Gateway gateway = ParseUtil.getGateway(bts);
+                    DeviceState deviceState=ParseUtil.parseStatus(bts);
+                    System.out.println("\n网关主动上报当前状态：\n"+deviceState.toString());
                     if (deviceState.getSrnOn()==1) {
                         System.out.println("设备报警了.....");
                         //设备一旦报警就下发请求列表
@@ -330,6 +369,19 @@ public class MessageHandler extends IoHandlerAdapter {
                 String snoString = snoStrSB.toString();
                 IoSession session_SlectList = (IoSession) SessionFactory.getSessionMap().get(snoString);
                 sendGataway(session_SlectList, "FFFF00080324000005030138");//查询设备列表
+                break;
+            case KC_MSG_CMD_CONTROL_HOWL://控制网关娇喘嘘嘘
+                StringBuilder snoStrSBHowl = new StringBuilder();
+                for (int i = 9; i < 15; i++) {
+                    snoStrSBHowl.append(BaseUtil.encodeHexStr(bts[i]));
+                }
+                String snoStringHowl = snoStrSBHowl.toString();
+                IoSession sessionHowl = (IoSession) SessionFactory.getSessionMap().get(snoStringHowl);
+                if(sessionHowl!=null){
+                    sendGataway(sessionHowl, "FFFF0010033E0000010001010000000000000054");//控制网关娇喘
+                }else{
+                    throw new Exception("空指针异常：session为null!!!!!!");
+                }
                 break;
             case KC_MSG_DBG_CMD:
                 DbgIfForJd(session, bts);
@@ -479,6 +531,7 @@ public class MessageHandler extends IoHandlerAdapter {
             e.printStackTrace();
         }
     }
+
 
     public void delDevice(byte[] bts) {
         //-1 -1 0 16 33 101 49 52 99 99 48 -74 -15 42 16 0 75 18 0 0

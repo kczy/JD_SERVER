@@ -1,29 +1,33 @@
 package entity;
 
+import util.HttpUtil;
+
+import java.io.IOException;
+
 public class DeviceState {
-    private Integer srnOn;           //警号是否在鸣叫
-    private Integer erolling;        //iii.允许子设备入网，enrolling；只能开启，等待自动结束，不能手动停止；
-    private Integer factoryReset;
+    private Integer srnOn;                  //警号是否在鸣叫
+    private Integer erolling;               //iii.允许子设备入网，enrolling；只能开启，等待自动结束，不能手动停止；
+    private Integer factoryReset;           //出厂重置
     private Integer smsControl;
-    private Integer armState;        //i.布撤防状态，armState；（0.撤防 1.在家布防 2.外出布防）
+    private Integer armState;               //i.布撤防状态，armState；（0.撤防 1.在家布防 2.外出布防）
     private Integer systemLanguage;
-    private Integer setTimeSrnOn;    //vi.报警时长设置，setTimeSrnOn；
-    private Integer armDly;          //vii.布防延时设置，armDly；
-    private Integer almDly;          //viii.报警延时，almDly；
+    private Integer setTimeSrnOn;           //vi.报警时长设置，setTimeSrnOn；
+    private Integer armDly;                 //vii.布防延时设置，armDly；
+    private Integer almDly;                 //viii.报警延时，almDly；
     private Integer softap;
-    private Integer armDlyg;             //iv.布防延时标记：armDlyg
-    private Integer almDlyg;             //v.报警延时标记：almdlyg，
+    private Integer armDlyg;                //iv.布防延时标记：armDlyg
+    private Integer almDlyg;                //v.报警延时标记：almdlyg，
     private Integer gsmSimCheck;
     private Integer gsmSearchNetwork;
     private Integer pushAlarm;
-    private Integer rssi;
-    private Integer alms;
+    private Integer rssi;                   //设备wifi信号强度
+    private Integer alms;                   //xii.为撤防报警数量，alms；
     private Integer gsmCsq;
-    private Integer deviceType;
-    private Integer pushID;
-    private Integer tmSrnEnd;           //ix.报警声音剩余时长，tmSrnEnd；
-    private Integer tmArmDlyEnd;         //x.布防延时剩余时长，tmArmDlyEnd
-    private Integer tmAlmDlyEnd;         //xi.报警/进入延时剩余时长，tmAlmDlyEnd
+    private Integer deviceType;             //设备类型
+    private Integer pushID;                 //xiv.机智云推送用。(1：有子设备防拆报警；2：子设备报警；3：SOS紧急报警；4：子设备电池电压低；5：外出布防时有门窗未关好)
+    private Integer tmSrnEnd;               //ix.报警声音剩余时长，tmSrnEnd；
+    private Integer tmArmDlyEnd;            //x.布防延时剩余时长，tmArmDlyEnd
+    private Integer tmAlmDlyEnd;            //xi.报警/进入延时剩余时长，tmAlmDlyEnd
     private Integer subDeviceModify;
     private Integer otaUpgrading;
 
@@ -256,5 +260,13 @@ public class DeviceState {
                 ", tmAlmDlyEnd=" + tmAlmDlyEnd +
                 ", subDeviceModify=" + subDeviceModify +
                 '}';
+    }
+    public static void main(String[] args){
+        String jsonString="{\"type\":1,\"securityDeviceResponseVOList\":[{\"sno\":\"303030303631\",\"address\":\"/117.136.63.160:39457\",\"endpoint\":0,\"profile\":0,\"device\":1028,\"name\":\"无线紧急按键\",\"state\":7,\"ieee\":\"9caa000000000000\",\"clusterId\":7,\"electric\":0}]}";
+        try {
+            HttpUtil.doPostStr("http://lib18610386362.oicp.net/icare-device-api/device/elder/security/security-device-jiade-impl", jsonString);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
