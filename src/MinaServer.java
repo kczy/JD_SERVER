@@ -19,7 +19,8 @@ public class MinaServer {
 
     static Logger log = Logger.getLogger(MinaServer.class.getName());
     public static JDDecoderFactory  thisSrvFty=null;
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
 
         //IoAcceptor acceptor=null;
         //创建一个非阻塞的socket

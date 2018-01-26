@@ -12,10 +12,13 @@ import util.*;
 
 import java.io.IOException;
 import java.util.*;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MessageHandler extends IoHandlerAdapter {
+
+
 
     static Logger log = Logger.getLogger(MinaServer.class.getName());
 
@@ -46,6 +49,9 @@ public class MessageHandler extends IoHandlerAdapter {
     static int count = 0;
 
     public Outer outer = null;
+
+    public MessageHandler() throws IOException {
+    }
 
     //public static byte pcgNumber = 0;
 
@@ -149,6 +155,7 @@ public class MessageHandler extends IoHandlerAdapter {
         // 00
         // 00
         // 54       校验和
+        /*
         byte[] cmd={(byte)0xFF,(byte)0xFF,//包头
                 (byte)0x00,(byte)0x10,      //包长度
                 (byte)0x03,                 //命令
@@ -168,6 +175,7 @@ public class MessageHandler extends IoHandlerAdapter {
                 (byte)0x54                  //校验和
         };
         sendGatawayThroughByts(session,cmd);
+        */
         //FFFF 0010 03 22 0000 01 00 02 02000000000000003A 开网指令，异曲同工
         /////////////////////////////////
     }
@@ -298,38 +306,71 @@ public class MessageHandler extends IoHandlerAdapter {
                 String snoadd = sbadd.toString();
                 final IoSession sessionadd = (IoSession) SessionFactory.getSessionMap().get(snoadd);
                 if (sessionadd != null) {
+                    //ACK回复
+                    sendGataway(session,"FFFF0003010000");
                     switch ((int) sessionadd.getAttribute(Constant.SESSION_ATTR_KEY_GW_TYPE)) {
-                        case Constant.SESSION_ATTR_VAL_GW_TYPE_ZIGBEE:
+                        case Constant.SESSION_ATTR_VAL_GW_TYPE_ZIGBEE:  //zigbee操作
                             sendGataway(sessionadd, "FFFF00100322000001000202000000000000003A");
-                            /*返回服务器ACK*/
-                            sendGatawayNoAddSN(session, "FFFF0003010000");
+
                             final Timer timer = new Timer();
                             timer.schedule(new TimerTask() {
-                                        public void run() {
-                                            //网关请求列表
-                                            sendGataway(sessionadd, "FFFF00080324000005030138");
-                                            timer.cancel();
-                                        }
+                                public void run() {
+                                    //网关请求列表
+                                    sendGataway(sessionadd, "FFFF00080324000005030138");
+                                    timer.cancel();
+                                }
                             }, 60000, 10000);
                             break;
-                        case Constant.SESSION_ATTR_VAL_GW_TYPE_RF:
-                            //紧急按钮
-                            sendGataway(sessionadd,"FFFF000A1F"+sessionadd.getAttribute(Constant.SESSION_ATTR_KEY_GW_SN)+"2C0009");
+                        case Constant.SESSION_ATTR_VAL_GW_TYPE_RF:  //433操作
 
- //////////////////////////////////////////////////////////////////////////////////////////////////////////
+                            ///////////////////////////////////////////////////之前的代码 是对的 替换为下面注释中的代码/////////////////////////////////////////////////////////////////////
                             if(bts.length<13) { return;}
                             byte[]  addRfDeviceMsg={(byte)0xFF,(byte)0xFF,(byte)0x00,(byte)0x11,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x05,
-                                    (byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x00,
-                                    (byte)0x00,(byte)0x00};
+                                            (byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x00,
+                                            (byte)0x00,(byte)0x00};
                             addRfDeviceMsg[18]=bts[11];
                             addRfDeviceMsg[19]=bts[12];
                             sendGatawayThroughByts(sessionadd, addRfDeviceMsg);
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
+                            final Timer timer433 = new Timer();
+                            timer433.schedule(new TimerTask() {
+                                public void run() {
+                                    //网关请求列表
+                                    sendGataway(sessionadd, "FFFF00080324000005030138");
+                                    timer433.cancel();
+                                }
+                            }, 60000, 10000);
+                            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                            /*if(bts.length<13) { return;}
+                            byte[]  addRfDeviceMsg1={(byte)0xFF,(byte)0xFF,(byte)0x00,(byte)0x11,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x05,(byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x15,(byte)0x00,(byte)0x00};//门磁
+                            byte[]  addRfDeviceMsg2={(byte)0xFF,(byte)0xFF,(byte)0x00,(byte)0x11,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x05,(byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x28,(byte)0x00,(byte)0x00};//烟感
+                            byte[]  addRfDeviceMsg3={(byte)0xFF,(byte)0xFF,(byte)0x00,(byte)0x11,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x05,(byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x2C,(byte)0x00,(byte)0x00};//紧急按钮
+                            byte[]  addRfDeviceMsg4={(byte)0xFF,(byte)0xFF,(byte)0x00,(byte)0x11,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x05,(byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x02,(byte)0x25,(byte)0x00};//警号
+                            byte[]  addRfDeviceMsg5={(byte)0xFF,(byte)0xFF,(byte)0x00,(byte)0x11,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x05,(byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x2B,(byte)0x00,(byte)0x00};//气感
+                            sendGatawayThroughByts(sessionadd, addRfDeviceMsg1);
+                            System.out.println("\n门磁开网");
+                            sendGatawayThroughByts(sessionadd, addRfDeviceMsg2);
+                            System.out.println("\n烟感开网");
+                            sendGatawayThroughByts(sessionadd, addRfDeviceMsg3);
+                            System.out.println("\n紧急开网");
+                            sendGatawayThroughByts(sessionadd, addRfDeviceMsg4);
+                            System.out.println("\n警号开网");
+                            sendGatawayThroughByts(sessionadd, addRfDeviceMsg5);
+                            System.out.println("\n气感开网");
+                            final Timer timer433 = new Timer();
+                            timer433.schedule(new TimerTask() {
+                                public void run() {
+                                    //网关请求列表
+                                    sendGataway(sessionadd, "FFFF00080324000005030138");
+                                    timer433.cancel();
+                                }
+                            }, 60000, 10000);*/
                             break;
                         default:
                             break;
                     }
-
+                }else{
+                    //ACK回复
+                    sendGataway(session,"FFFF0003000000");
                 }
                 break;
             case KC_MSG_CMD_CHECK_GW_EXSIT:
@@ -526,11 +567,16 @@ public class MessageHandler extends IoHandlerAdapter {
         String jsonString = gson.toJson(params);
         log.info("设备列表json：" + jsonString);
         try {
-            HttpUtil.doPostStr("http://lib18610386362.oicp.net/icare-device-api/device/elder/security/security-device-jiade-impl", jsonString);
+            //HttpUtil.doPostStr("http://lib18610386362.oicp.net/icare-device-api/device/elder/security/security-device-jiade-impl", jsonString);
+            //HttpUtil.doPostStr("http://120.77.215.202:10055/device/elder/security/security-device-jiade-impl", jsonString);
+            //HttpUtil.doPostStr("http://171.208.222.97:9080/device/elder/security/security-device-jiade-impl", jsonString);
+            HttpUtil.doPostStr("http://127.0.0.1:9080/device/elder/security/security-device-jiade-impl", jsonString);
+            //HttpUtil.doPostStr("http://lib18610386362.oicp.net/icare-device-api/device/elder/security/security-device-jiade-impl", jsonString);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 
     public void delDevice(byte[] bts) {
@@ -542,7 +588,7 @@ public class MessageHandler extends IoHandlerAdapter {
             sno[j] = bts[i];
         }
         String snoStr = ByteUtil.bytesToHexString(sno);
-        IoSession session = (IoSession) SessionFactory.getSessionMap().get(snoStr);
+        final IoSession session = (IoSession) SessionFactory.getSessionMap().get(snoStr);
         byte[] mac = new byte[8];
         for (int i = 13, j = 0; i < 20; i++, j++) {
             mac[j] = bts[i];
@@ -566,7 +612,16 @@ public class MessageHandler extends IoHandlerAdapter {
                             zontypeStr + //透传填充ZoneType
                             "F1"
             );
+            final Timer timer = new Timer();
+            timer.schedule(new TimerTask() {
+                public void run() {
+                    //网关请求列表
+                    sendGataway(session, "FFFF00080324000005030138");
+                    timer.cancel();
+                }
+            }, 60000, 10000);
         }
+
     }
 
 }

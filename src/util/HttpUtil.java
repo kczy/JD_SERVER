@@ -22,7 +22,10 @@ public class HttpUtil {
 
     public static void main(String[] args) {
         try {
-            doPostStr("http://127.0.0.1:8080/device/elder/security/security-device-jiade-impl","{{},{}}");
+            //doPostStr("http://127.0.0.1:8080/device/elder/security/security-device-jiade-impl","{{},{}}");
+
+           //HttpUtil.doPostStr("http://120.77.215.202:10055/device/elder/security/security-device-jiade-impl", "{\"type\":0,\"securityDeviceResponseVOList\":[{\"sno\":\"303030303631\",\"address\":\"/117.136.63.142:17153\",\"endpoint\":1,\"profile\":0,\"device\":1028,\"name\":\"遥控2\",\"state\":0,\"ieee\":\"d5e82a10004b1200\",\"clusterId\":0,\"electric\":0}]}");
+            HttpUtil.doPostStr("http://127.0.0.1:9089/device/elder/security/security-device-jiade-impl", "{\"type\":0,\"securityDeviceResponseVOList\":[{\"sno\":\"303030303631\",\"address\":\"/117.136.63.142:17153\",\"endpoint\":1,\"profile\":0,\"device\":1028,\"name\":\"遥控2\",\"state\":0,\"ieee\":\"d5e82a10004b1200\",\"clusterId\":0,\"electric\":0}]}");
         } catch (IOException e) {
             e.printStackTrace();
         }
