@@ -22,33 +22,14 @@ public class MessageHandler extends IoHandlerAdapter {
 
     static Logger log = Logger.getLogger(MinaServer.class.getName());
 
-    private final int JD_MSG_CMD_INDEX = 4;
-    private final int JD_MSG_CMD_UP_GW_SN = 2;
-    private final int JD_MSG_CMD_UP_GW_SN_ACK = 4;
-    private final int JD_MSG_CMD_UP_DEV_STATUS = 5;
-    private final int JD_MSG_CMD_UP_TIME = 0x17;
-    /*TODO:相关指令存在误触发（JD协议里面有CMD=该字段）*/
-    private final int KC_MSG_CMD_ADD_DEV = 81;          //添加网关
-    private final int KC_MSG_CMD_CHECK_GW_EXSIT = 82;   //检查网关是否存在或在线
-    private final int KC_MSG_CMD_DEK_DEV = 83;
-    private final int KC_MSG_CMD_SELECT_LIST=84;        //查询子设备列表
-    private final int KC_MSG_CMD_CONTROL_HOWL=85;       //控制设备鸣叫
-
-    private final int JD_MSG_CMD_ACTION_INDEX = 8;//网关回复心跳
-    private final int JD_MSG_CMD_ACTION_TF = 6;/*透传指令*/
-    private final int JD_MSG_CMD_ACTION_NOT_TF = 4;/*非透传指令*/
 
 
-    private final int KC_MSG_DBG_CMD = (byte) 0xF9;
-    private final int KC_MSG_DBG_CMD_GET_LIST = (byte) 0x01;
-    private final int KC_MSG_DBG_CMD_GET_GW_STATUS = (byte) 0x02;
 
-
-    public Gson gson = new Gson();
-
-    static int count = 0;
-
+    public static Gson gson = new Gson();
+    public static int count = 0;
     public Outer outer = null;
+
+    public StringBuilder sb=new StringBuilder();
 
     public MessageHandler() throws IOException {
     }
@@ -104,7 +85,8 @@ public class MessageHandler extends IoHandlerAdapter {
             return;
         }
         /*用于心跳通信，维持链路*/
-        sendGataway(session, "FFFF00050700000000");
+        //sendGataway(session, "FFFF00050700000000");
+        sendGatawayThroughByts(session,JDDeviceDefinitionCommand.HEARTBEAT);
     }
 
 
@@ -117,7 +99,7 @@ public class MessageHandler extends IoHandlerAdapter {
      */
     @Override
     public void exceptionCaught(IoSession session, Throwable cause) throws Exception {
-        log.log(Level.WARNING, "【异常：   " + new Date().toString() + " \n" + cause.toString() + "】");
+        log.log(Level.WARNING, "【服务端异常：   " + new Date().toString() + " \n" + cause.toString() + "】");
         super.exceptionCaught(session, cause);
     }
 
@@ -132,8 +114,9 @@ public class MessageHandler extends IoHandlerAdapter {
     public void sessionOpened(IoSession session) throws Exception {
         log.info("【连接打开，服务器发送获取网关指令：" + "FF FF 00 05 01 00 00 00 06" + "   " + new Date().toString() + "】");
          /*下发查询设备网关序列号*/
-        sendGataway(session, "FFFF00050100000006");
-        ///////////记录网关的包序////////////
+        //sendGataway(session, "FFFF00050100000006");
+        sendGatawayThroughByts(session,JDDeviceDefinitionCommand.GET_GATEWAY_ID);
+        ///////////记录接收网关发送过来的包的顺序////////////
         session.setAttribute("receive_package_serial",0);
         ///////////////////////////////////
 
@@ -189,12 +172,7 @@ public class MessageHandler extends IoHandlerAdapter {
      * @throws Exception
      */
     @Override
-    public void messageReceived(IoSession session, Object message) throws Exception {
-        ///////////记录网关的包序////////////
-            Integer rps= (Integer) session.getAttribute("receive_package_serial");
-            System.out.println("\n-------------------->   接收的包序："+(++rps)+"   ");
-            session.setAttribute("receive_package_serial",rps);
-        ///////////////////////////////////
+    public void messageReceived(final IoSession session, Object message) throws Exception {
 
         //记录最后一次接收消息的时间
         if(session.getAttribute("receiveTime")!=null){
@@ -204,13 +182,17 @@ public class MessageHandler extends IoHandlerAdapter {
 
         byte[] bts = (byte[]) message;
         System.out.println(session.getRemoteAddress().toString() + "\nRcv Msg" + ByteUtil.bytesToHexs(bts));
-
-        switch (bts[JD_MSG_CMD_INDEX]) {
+        ///////////记录网关的包序////////////
+        Integer rps= (Integer) session.getAttribute("receive_package_serial");
+        System.out.println("\n------->接收的包个数："+(++rps)+"----->网关上传的包序号："+Integer.parseInt(BaseUtil.byteToHexString(bts[5]),10));
+        session.setAttribute("receive_package_serial",rps);
+        ///////////////////////////////////
+        switch (bts[JDDeviceDefinitionCommand.JD_MSG_CMD_INDEX]) {
             //如果网关回复心跳时间超过三分钟就移除当前session
-            case JD_MSG_CMD_ACTION_INDEX:
+            case JDDeviceDefinitionCommand.JD_MSG_CMD_ACTION_INDEX:
                 log.info("收到心跳回复");
                 break;
-            case JD_MSG_CMD_UP_TIME:/*获取时间*/
+            case JDDeviceDefinitionCommand.JD_MSG_CMD_UP_TIME:/*获取时间*/
                 log.info("Dev adjust time   request\r\n");
                 Calendar c = Calendar.getInstance();
                 int year = c.get(Calendar.YEAR);
@@ -239,7 +221,7 @@ public class MessageHandler extends IoHandlerAdapter {
                 sendGatawayThroughByts(session, timeMsg);
 
                 break;
-            case JD_MSG_CMD_UP_GW_SN://上报网关信息：序列号
+            case JDDeviceDefinitionCommand.JD_MSG_CMD_UP_GW_SN://上报网关信息：序列号
                 String ID = ParseUtil.getID(bts);//截取序列号
                 log.info("\n收到网关序列号:" + ID);
 
@@ -249,27 +231,31 @@ public class MessageHandler extends IoHandlerAdapter {
 
                  /*TODO：需要更新网关在线状态*/
                 /*查询子设备列表信息*/
-                sendGataway(session, "FFFF00080324000005030138");
+                //sendGataway(session, "FFFF00080324000005030138");
+                sendGatawayThroughByts(session,JDDeviceDefinitionCommand.SCAN_DEVICES_LIST);
                 break;
-            case JD_MSG_CMD_UP_GW_SN_ACK://设备回复收到了，不需要解析
-                log.info("【设备收到服务器的请求" + new Date().toString() + "】");
+            case JDDeviceDefinitionCommand.JD_MSG_CMD_UP_GW_SN_ACK://设备回复收到了，不需要解析
+                log.info("【网关收到服务器的指令" + new Date().toString() + "】");
                 System.out.println();
                 break;
-            case JD_MSG_CMD_UP_DEV_STATUS://设备主动上报状态
+            case JDDeviceDefinitionCommand.JD_MSG_CMD_UP_DEV_STATUS://设备主动上报状态
                 log.info("Get Device msg 05");
                 log.info("Send  Ack to Device");
-                sendGatawayNoAddSN(session, "FFFF000506" + BaseUtil.encodeHexStr(bts[5]) + "00000C");
+                //sendGatawayNoAddSN(session, "FFFF000506" + BaseUtil.encodeHexStr(bts[5]) + "00000C");
+                JDDeviceDefinitionCommand.ANSWER_GATEWAY_ACK[5]=bts[5];
+                sendGatawayThroughBytsNotComputedPackageNumber(session,JDDeviceDefinitionCommand.ANSWER_GATEWAY_ACK);//回复设备收到了
 
-                if (bts[JD_MSG_CMD_ACTION_INDEX] == JD_MSG_CMD_ACTION_NOT_TF) {//非透传解析
+                if (bts[JDDeviceDefinitionCommand.JD_MSG_CMD_ACTION_INDEX] == JDDeviceDefinitionCommand.JD_MSG_CMD_ACTION_NOT_TF) {//非透传解析
                     Gateway gateway = ParseUtil.getGateway(bts);
                     DeviceState deviceState=ParseUtil.parseStatus(bts);
                     System.out.println("\n网关主动上报当前状态：\n"+deviceState.toString());
                     if (deviceState.getSrnOn()==1) {
                         System.out.println("设备报警了.....");
-                        //设备一旦报警就下发请求列表
-                        sendGataway(session, "FFFF00080324000005030138");
+                        /*查询子设备列表信息*/
+                        //sendGataway(session, "FFFF00080324000005030138");
+                        sendGatawayThroughByts(session,JDDeviceDefinitionCommand.SCAN_DEVICES_LIST);
                     }
-                } else if (bts[JD_MSG_CMD_ACTION_INDEX] == JD_MSG_CMD_ACTION_TF) {//透传解析
+                } else if (bts[JDDeviceDefinitionCommand.JD_MSG_CMD_ACTION_INDEX] == JDDeviceDefinitionCommand.JD_MSG_CMD_ACTION_TF) {//透传解析
                     log.info("【设备上报透传    " + new Date().toString() + "】");
                     if (bts[9] == 1) {
                         log.info("单个子设备上报");
@@ -282,7 +268,7 @@ public class MessageHandler extends IoHandlerAdapter {
                             return;
                         }
                         List<SecurityDeviceResponseVO> devices = ParseUtil.getDevices(bts, session);
-                        send(0, devices);
+                        sendToAPPServer(0, devices);
                         //解析包含报警的设备放入temp
                         List<SecurityDeviceResponseVO> temp = new ArrayList<>();
                         //判断devices里面的报警对象
@@ -292,31 +278,33 @@ public class MessageHandler extends IoHandlerAdapter {
                             }
                         }
                         if (temp != null && temp.size() > 0) {
-                            send(1, temp);
+                            sendToAPPServer(1, temp);
                         }
                     }
                 }
                 break;
-            case KC_MSG_CMD_ADD_DEV:
+            case JDDeviceDefinitionCommand.KC_MSG_CMD_ADD_DEV:
                 log.info("Srv_add_device_cmd:");
-                StringBuilder sbadd = new StringBuilder();
+                StringBuilder sbadd = getStringBuilder();
                 for (int i = 5; i < 5+Constant.JD_DEVICE_SN_LENGTH; i++) {
                     sbadd.append(BaseUtil.encodeHexStr(bts[i]));
                 }
                 String snoadd = sbadd.toString();
                 final IoSession sessionadd = (IoSession) SessionFactory.getSessionMap().get(snoadd);
                 if (sessionadd != null) {
-                    //ACK回复
-                    sendGataway(session,"FFFF0003010000");
+                    //回复APPServer
+                    //sendGataway(session,"FFFF0003010000");
+                    sendGatawayThroughByts(session,JDDeviceDefinitionCommand.ANSWER_APPSERVER_OK);
                     switch ((int) sessionadd.getAttribute(Constant.SESSION_ATTR_KEY_GW_TYPE)) {
                         case Constant.SESSION_ATTR_VAL_GW_TYPE_ZIGBEE:  //zigbee操作
-                            sendGataway(sessionadd, "FFFF00100322000001000202000000000000003A");
-
+                            //sendGataway(sessionadd, "FFFF00100322000001000202000000000000003A");
+                            sendGatawayThroughByts(sessionadd,JDDeviceDefinitionCommand.INSERT_DEVICE_INTO_ZIGBEE);
                             final Timer timer = new Timer();
                             timer.schedule(new TimerTask() {
                                 public void run() {
                                     //网关请求列表
-                                    sendGataway(sessionadd, "FFFF00080324000005030138");
+                                    //sendGataway(sessionadd, "FFFF00080324000005030138");
+                                    sendGatawayThroughByts(sessionadd,JDDeviceDefinitionCommand.SCAN_DEVICES_LIST);
                                     timer.cancel();
                                 }
                             }, 60000, 10000);
@@ -335,50 +323,28 @@ public class MessageHandler extends IoHandlerAdapter {
                             timer433.schedule(new TimerTask() {
                                 public void run() {
                                     //网关请求列表
-                                    sendGataway(sessionadd, "FFFF00080324000005030138");
+                                    //sendGataway(sessionadd, "FFFF00080324000005030138");
+                                    sendGatawayThroughByts(sessionadd,JDDeviceDefinitionCommand.SCAN_DEVICES_LIST);
                                     timer433.cancel();
                                 }
                             }, 60000, 10000);
-                            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                            /*if(bts.length<13) { return;}
-                            byte[]  addRfDeviceMsg1={(byte)0xFF,(byte)0xFF,(byte)0x00,(byte)0x11,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x05,(byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x15,(byte)0x00,(byte)0x00};//门磁
-                            byte[]  addRfDeviceMsg2={(byte)0xFF,(byte)0xFF,(byte)0x00,(byte)0x11,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x05,(byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x28,(byte)0x00,(byte)0x00};//烟感
-                            byte[]  addRfDeviceMsg3={(byte)0xFF,(byte)0xFF,(byte)0x00,(byte)0x11,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x05,(byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x2C,(byte)0x00,(byte)0x00};//紧急按钮
-                            byte[]  addRfDeviceMsg4={(byte)0xFF,(byte)0xFF,(byte)0x00,(byte)0x11,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x05,(byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x02,(byte)0x25,(byte)0x00};//警号
-                            byte[]  addRfDeviceMsg5={(byte)0xFF,(byte)0xFF,(byte)0x00,(byte)0x11,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x05,(byte)0x0D,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x2B,(byte)0x00,(byte)0x00};//气感
-                            sendGatawayThroughByts(sessionadd, addRfDeviceMsg1);
-                            System.out.println("\n门磁开网");
-                            sendGatawayThroughByts(sessionadd, addRfDeviceMsg2);
-                            System.out.println("\n烟感开网");
-                            sendGatawayThroughByts(sessionadd, addRfDeviceMsg3);
-                            System.out.println("\n紧急开网");
-                            sendGatawayThroughByts(sessionadd, addRfDeviceMsg4);
-                            System.out.println("\n警号开网");
-                            sendGatawayThroughByts(sessionadd, addRfDeviceMsg5);
-                            System.out.println("\n气感开网");
-                            final Timer timer433 = new Timer();
-                            timer433.schedule(new TimerTask() {
-                                public void run() {
-                                    //网关请求列表
-                                    sendGataway(sessionadd, "FFFF00080324000005030138");
-                                    timer433.cancel();
-                                }
-                            }, 60000, 10000);*/
+
                             break;
                         default:
                             break;
                     }
                 }else{
-                    //ACK回复
-                    sendGataway(session,"FFFF0003000000");
+                    //回复APPServer
+                    //sendGataway(session,"FFFF0003000000");
+                    sendGatawayThroughByts(session,JDDeviceDefinitionCommand.ANSWER_APPSERVER_FAILED);
                 }
                 break;
-            case KC_MSG_CMD_CHECK_GW_EXSIT:
+            case JDDeviceDefinitionCommand.KC_MSG_CMD_CHECK_GW_EXSIT:
                 /*
                 * 检查网关是否存在。写出对应的指令
                 * */
                 log.info("Srv_find_gw_is_exsit");
-                StringBuilder sbSno = new StringBuilder();
+                StringBuilder sbSno = getStringBuilder();
                 for (int i = 5; i < bts.length - 1; i++) {
                     sbSno.append(BaseUtil.encodeHexStr(bts[i]));
                 }
@@ -386,33 +352,32 @@ public class MessageHandler extends IoHandlerAdapter {
                 IoSession sessionLogin = (IoSession) SessionFactory.getSessionMap().get(snoStr);
                 String isLogin = "";
                 if (sessionLogin != null) {
-                    isLogin = "FFFF0003010000";
-                    //如果有此网关就主动去操一次列表
-                    sendGataway(sessionLogin,"FFFF00080324000005030138");//发送获取设备列表命令
+                    sendGatawayThroughByts(session,JDDeviceDefinitionCommand.ANSWER_APPSERVER_OK);//回复APP
+                    sendGatawayThroughByts(sessionLogin,JDDeviceDefinitionCommand.SCAN_DEVICES_LIST);//扫描网关下的列表
                 } else {
-                    isLogin = "FFFF0003000000";
+                    sendGatawayThroughByts(session,JDDeviceDefinitionCommand.ANSWER_APPSERVER_FAILED);
                 }
-                sendGataway(session,isLogin);//发送网关在线结果
                 break;
-            case KC_MSG_CMD_DEK_DEV:
+            case JDDeviceDefinitionCommand.KC_MSG_CMD_DEK_DEV:
                 //-1 -1 0 16 33 101 49 52 99 99 48 -74 -15 42 16 0 75 18 0 0
                 delDevice(bts);
                 break;
-            case KC_MSG_CMD_SELECT_LIST://查询设备列表
+            case JDDeviceDefinitionCommand.KC_MSG_CMD_SELECT_LIST://查询设备列表
                 /*
                 /*
                 * 检查网关是否存在。写出对应的指令
                 * */
-                StringBuilder snoStrSB = new StringBuilder();
+                StringBuilder snoStrSB =getStringBuilder();
                 for (int i = 5; i < 11; i++) {
                     snoStrSB.append(BaseUtil.encodeHexStr(bts[i]));
                 }
                 String snoString = snoStrSB.toString();
                 IoSession session_SlectList = (IoSession) SessionFactory.getSessionMap().get(snoString);
-                sendGataway(session_SlectList, "FFFF00080324000005030138");//查询设备列表
+                //sendGataway(session_SlectList, "FFFF00080324000005030138");//查询设备列表
+                sendGatawayThroughByts(session_SlectList,JDDeviceDefinitionCommand.SCAN_DEVICES_LIST);//扫描网关下的列表
                 break;
-            case KC_MSG_CMD_CONTROL_HOWL://控制网关娇喘嘘嘘
-                StringBuilder snoStrSBHowl = new StringBuilder();
+            case JDDeviceDefinitionCommand.KC_MSG_CMD_CONTROL_HOWL://控制网关娇喘嘘嘘
+                StringBuilder snoStrSBHowl = getStringBuilder();
                 for (int i = 9; i < 15; i++) {
                     snoStrSBHowl.append(BaseUtil.encodeHexStr(bts[i]));
                 }
@@ -424,7 +389,7 @@ public class MessageHandler extends IoHandlerAdapter {
                     throw new Exception("空指针异常：session为null!!!!!!");
                 }
                 break;
-            case KC_MSG_DBG_CMD:
+            case JDDeviceDefinitionCommand.KC_MSG_DBG_CMD:
                 DbgIfForJd(session, bts);
                 break;
             default:
@@ -439,7 +404,7 @@ public class MessageHandler extends IoHandlerAdapter {
     * */
     private void DbgIfForJd(IoSession session, byte[] bts) {
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb =getStringBuilder();
         String sno;
         //嘉德的是40>=i<72，因为太长了 这里只用最后12个
         for (int i = (5); i < (11); i++) {
@@ -454,11 +419,11 @@ public class MessageHandler extends IoHandlerAdapter {
             sendGatawayNoAddSN(session, "FFFF0003010000");
         }
         switch (bts[11]) {
-            case KC_MSG_DBG_CMD_GET_GW_STATUS:
+            case JDDeviceDefinitionCommand.KC_MSG_DBG_CMD_GET_GW_STATUS:
                  /*下发查询设备网关序列号*/
                 sendGataway(sessionLogin, "FFFF00050100000006");
                 break;
-            case KC_MSG_DBG_CMD_GET_LIST:
+            case JDDeviceDefinitionCommand.KC_MSG_DBG_CMD_GET_LIST:
                 /*查询子设备信息*/
                 sendGataway(sessionLogin, "FFFF00080324000005030138");
                 break;
@@ -482,10 +447,11 @@ public class MessageHandler extends IoHandlerAdapter {
 //        log.info("消息发送完毕buffer.limit()：" + buffer.limit());
 //        log.info("消息发送完毕buffer.position()：" + buffer.position());
         System.out.println("\n           send data:   回复的包序："+session.getAttribute("pcgNumber")+"  <------------------------\n");
-
+        System.out.println();
         for (int i = 0; i <buffer.array().length ; i++) {
             System.out.print(buffer.array()[i]+" ");
         }
+        System.out.println();
         log.info(session.getRemoteAddress().toString() + "Send MSG" + String.valueOf(message));
     }
 
@@ -542,6 +508,19 @@ public class MessageHandler extends IoHandlerAdapter {
         buffer.flip();
         session.write(buffer);
     }
+    public void sendGatawayThroughBytsNotComputedPackageNumber(IoSession session, byte[] HexData) {
+
+        int checkSum = 0;
+        for (int i = 2; i < HexData.length - 1; i++) {
+            checkSum += HexData[i];
+        }
+        HexData[HexData.length - 1] = (byte) (checkSum % 256);
+        IoBuffer buffer = IoBuffer.allocate(HexData.length);
+        buffer.setAutoExpand(false);
+        buffer.put(HexData);
+        buffer.flip();
+        session.write(buffer);
+    }
 
     /**
      * 发送消息，不需要包序
@@ -562,7 +541,7 @@ public class MessageHandler extends IoHandlerAdapter {
         session.write(buffer);
     }
 
-    public void send(int type, List list) {
+    public void sendToAPPServer(int type, List list) {
         JiadeParams params = new JiadeParams(type, list);
         String jsonString = gson.toJson(params);
         log.info("设备列表json：" + jsonString);
@@ -616,7 +595,8 @@ public class MessageHandler extends IoHandlerAdapter {
             timer.schedule(new TimerTask() {
                 public void run() {
                     //网关请求列表
-                    sendGataway(session, "FFFF00080324000005030138");
+                    //sendGataway(session, "FFFF00080324000005030138");
+                    sendGatawayThroughByts(session,JDDeviceDefinitionCommand.SCAN_DEVICES_LIST);
                     timer.cancel();
                 }
             }, 60000, 10000);
@@ -624,4 +604,12 @@ public class MessageHandler extends IoHandlerAdapter {
 
     }
 
+    public StringBuilder getStringBuilder() {
+        this.sb.delete(0,this.sb.length());
+        return sb;
+    }
+
+    public void setStringBuilder(StringBuilder sb) {
+        this.sb = sb;
+    }
 }

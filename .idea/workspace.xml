@@ -7,17 +7,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8572c8f3-3dee-41a6-8045-b30da2bf5a4e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/resources/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCase/APP请求的接口.docx" afterPath="$PROJECT_DIR$/TestCase/APP请求的接口.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/kc_jd_drv_jar/kc_jd_drv.jar" afterPath="$PROJECT_DIR$/out/artifacts/kc_jd_drv_jar/kc_jd_drv.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$1.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MinaServer.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/MinaServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/HttpUtil.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/util/HttpUtil.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/kc_jd_drv_jar/kc_jd_drv.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MinaServer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/conf/Configuration.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/DeviceAlarm.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/DeviceEnum.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/DeviceName.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/DeviceState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/DmDeviceEnum.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/Event.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/Gateway.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/JiadeParams.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/Mcu.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/Package.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/SecurityDeviceResponseVO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/factory/ByteDecodeFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/factory/JDDecoderFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/factory/Remove55DecoderFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/factory/SessionFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/CutDecoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDEncoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder$Context.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder$DEC_FSM_STATUS.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder9$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder9$Context.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder9.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/Remove55Decoder$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/Remove55Decoder$Context.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/Remove55Decoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/hansen/EventNotify.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/hansen/Outer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/main/java/resources/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/mqtt/MtClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/mqtt/PushCallback.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/test/Test.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/BaseUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/ByteUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/Constant.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/HttpUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/ParseUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/ScannerGatawayTask$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/ScannerGatawayTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/Session.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MessageHandler.java" afterPath="$PROJECT_DIR$/src/MessageHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MinaServer.java" afterPath="$PROJECT_DIR$/src/MinaServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/HttpUtil.java" afterPath="$PROJECT_DIR$/src/util/HttpUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/BaseUtil.java" afterPath="$PROJECT_DIR$/src/util/BaseUtil.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,17 +75,28 @@
       <file leaf-file-name="MessageHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MessageHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="417" column="17" lean-forward="true" selection-start-line="417" selection-start-column="17" selection-end-line="417" selection-end-column="17" />
+            <state relative-caret-position="318">
+              <caret line="262" column="57" lean-forward="false" selection-start-line="262" selection-start-column="57" selection-end-line="262" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#sessionCreated#0;class#MessageHandler#0" expanded="false" />
-                <element signature="docComment;method#sessionClosed#0;class#MessageHandler#0" expanded="false" />
                 <element signature="docComment;method#exceptionCaught#0;class#MessageHandler#0" expanded="false" />
                 <element signature="docComment;method#sessionOpened#0;class#MessageHandler#0" expanded="false" />
                 <element signature="docComment;method#messageReceived#0;class#MessageHandler#0" expanded="false" />
                 <element signature="docComment;method#sendGatawayNoAddSN#0;class#MessageHandler#0" expanded="false" />
+                <element signature="e#25839#25840#0" expanded="true" />
+                <element signature="e#25867#25868#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JDDeviceDefinitionCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entity/JDDeviceDefinitionCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="100" column="43" lean-forward="false" selection-start-line="100" selection-start-column="25" selection-end-line="100" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,7 +104,7 @@
       <file leaf-file-name="MinaServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MinaServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
+            <state relative-caret-position="512">
               <caret line="47" column="50" lean-forward="false" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -75,30 +126,8 @@
       <file leaf-file-name="HttpUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/HttpUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParseUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/ParseUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1904">
-              <caret line="119" column="41" lean-forward="false" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SecurityDeviceResponseVO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entity/SecurityDeviceResponseVO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1632">
-              <caret line="144" column="45" lean-forward="false" selection-start-line="144" selection-start-column="45" selection-end-line="144" selection-end-column="45" />
+            <state relative-caret-position="896">
+              <caret line="69" column="54" lean-forward="false" selection-start-line="69" selection-start-column="54" selection-end-line="69" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -110,18 +139,6 @@
             <state relative-caret-position="208">
               <caret line="13" column="37" lean-forward="false" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceState.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entity/DeviceState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="9" column="50" lean-forward="false" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -157,6 +174,7 @@
       <find>session.getAttribute(&quot;pcgNumber&quot;)</find>
       <find>pcgNumber</find>
       <find>send</find>
+      <find>StringBuilder</find>
     </findStrings>
     <replaceStrings>
       <replace>Constant.SESSION_ATTR_KEY_GW_TYPE</replace>
@@ -173,7 +191,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/filter/codec/ProtocolDecoder.class" />
         <option value="$PROJECT_DIR$/src/filter/CutDecoder.java" />
         <option value="$PROJECT_DIR$/src/factory/ByteDecodeFactory.java" />
         <option value="$PROJECT_DIR$/src/filter/TestDecoder.java" />
@@ -203,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/entity/Params.java" />
         <option value="$PROJECT_DIR$/src/entity/JiadeParams.java" />
         <option value="$PROJECT_DIR$/src/hansen/Outer.java" />
-        <option value="$PROJECT_DIR$/src/util/BaseUtil.java" />
         <option value="$PROJECT_DIR$/src/MinaEventHandler.java" />
         <option value="$PROJECT_DIR$/src/factory/JDDecoderFactory.java" />
         <option value="$PROJECT_DIR$/TestCase/TestCase.txt" />
@@ -223,6 +239,8 @@
         <option value="$PROJECT_DIR$/src/util/ParseUtil.java" />
         <option value="$PROJECT_DIR$/src/util/HttpUtil.java" />
         <option value="$PROJECT_DIR$/src/MinaServer.java" />
+        <option value="$PROJECT_DIR$/src/util/BaseUtil.java" />
+        <option value="$PROJECT_DIR$/src/entity/JDDeviceDefinitionCommand.java" />
         <option value="$PROJECT_DIR$/src/MessageHandler.java" />
       </list>
     </option>
@@ -239,11 +257,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="107" />
-    <option name="y" value="24" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="381" />
+    <option name="y" value="12" />
     <option name="width" value="1124" />
-    <option name="height" value="689" />
+    <option name="height" value="694" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -263,9 +281,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -276,30 +293,13 @@
             <path>
               <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
               <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-              <item name="kc_jd_drv_jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,7 +308,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../new_icare" />
     <property name="SearchEverywhereHistoryKey" value="TUDO&#9;null&#9;null&#10;Se&#9;FILE&#9;file://E:/IdeaProjects/kc_jd_drv/src/factory/SessionFactory.java&#10;TODO&#9;ACTION&#9;ActivateTODOToolWindow&#10;TOD&#9;ACTION&#9;ActivateTODOToolWindow&#10;tod&#9;ACTION&#9;ActivateTODOToolWindow&#10;Outer&#9;FILE&#9;file://E:/IdeaProjects/mina/src/hansen/Outer.java&#10;Dm&#9;FILE&#9;file://E:/IdeaProjects/mina/src/entity/DmDeviceEnum.java&#10;Device&#9;PSI&#9;JAVA://entity.DeviceEnum&#10;De&#9;FILE&#9;file://E:/IdeaProjects/mina/src/entity/DmDeviceEnum.java&#10;Devic&#9;PSI&#9;JAVA://entity.DeviceEnum&#10;Ou&#9;FILE&#9;file://E:/IdeaProjects/mina/src/hansen/Outer.java&#10;Out&#9;FILE&#9;file://E:/IdeaProjects/mina/src/hansen/Outer.java&#10;EntryImpl&#9;PSI&#9;JAVA://org.apache.mina.core.filterchain.DefaultIoFilterChain.EntryImpl&#10;EntryI&#9;PSI&#9;JAVA://org.apache.mina.core.filterchain.DefaultIoFilterChain.EntryImpl&#10;Entry.class&#9;FILE&#9;jar://E:/IdeaProjects/mina/lib/ognl-3.1.11.jar!/ognl/internal/Entry.class" />
   </component>
   <component name="RecentsManager">
@@ -336,6 +336,25 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.MinaServer">
+    <configuration name="BaseUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="util.BaseUtil" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="kc_jd_drv" />
+      <envs />
+    </configuration>
     <configuration name="DeviceState" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -399,25 +418,6 @@
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="kc_jd_drv" />
-      <envs />
-    </configuration>
-    <configuration name="ScannerGatawayTask" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="util.ScannerGatawayTask" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -521,18 +521,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.MinaServer" />
-      <item index="1" class="java.lang.String" itemvalue="Application.ScannerGatawayTask" />
-      <item index="2" class="java.lang.String" itemvalue="Application.JDDecoder" />
-      <item index="3" class="java.lang.String" itemvalue="Application.DeviceState" />
-      <item index="4" class="java.lang.String" itemvalue="Application.HttpUtil" />
+      <item index="1" class="java.lang.String" itemvalue="Application.JDDecoder" />
+      <item index="2" class="java.lang.String" itemvalue="Application.DeviceState" />
+      <item index="3" class="java.lang.String" itemvalue="Application.HttpUtil" />
+      <item index="4" class="java.lang.String" itemvalue="Application.BaseUtil" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.MinaServer" />
-        <item index="1" class="java.lang.String" itemvalue="Application.HttpUtil" />
-        <item index="2" class="java.lang.String" itemvalue="Application.DeviceState" />
-        <item index="3" class="java.lang.String" itemvalue="Application.JDDecoder" />
-        <item index="4" class="java.lang.String" itemvalue="Application.ScannerGatawayTask" />
+        <item index="1" class="java.lang.String" itemvalue="Application.BaseUtil" />
+        <item index="2" class="java.lang.String" itemvalue="Application.HttpUtil" />
+        <item index="3" class="java.lang.String" itemvalue="Application.DeviceState" />
+        <item index="4" class="java.lang.String" itemvalue="Application.JDDecoder" />
       </list>
     </recent_temporary>
   </component>
@@ -629,12 +629,13 @@
       <workItem from="1516423402057" duration="418000" />
       <workItem from="1516686683121" duration="2975000" />
       <workItem from="1516757519493" duration="24130000" />
-      <workItem from="1516930109641" duration="5071000" />
+      <workItem from="1516930109641" duration="12536000" />
+      <workItem from="1517189101299" duration="9106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="861446000" />
+    <option name="totallyTimeSpent" value="878017000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -646,8 +647,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="107" y="24" width="1124" height="689" extended-state="1" />
-    <editor active="true" />
+    <frame x="381" y="12" width="1124" height="694" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45084745" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -655,17 +655,17 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43543047" sideWeight="0.30769232" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3996724" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33513513" sideWeight="0.5011338" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39700997" sideWeight="0.4973545" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33392859" sideWeight="0.5011338" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792792" sideWeight="0.8576923" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23966165" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22274436" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2552204" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25469926" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35262206" sideWeight="0.6923077" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952547" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.6923077" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -717,7 +717,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>258</line>
+          <line>241</line>
           <properties />
           <option name="timeStamp" value="286" />
         </line-breakpoint>
@@ -741,33 +741,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>380</line>
+          <line>346</line>
           <properties />
           <option name="timeStamp" value="290" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>384</line>
+          <line>350</line>
           <properties />
           <option name="timeStamp" value="291" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/util/BaseUtil.java</url>
+          <line>61</line>
+          <properties />
+          <option name="timeStamp" value="293" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="292" />
+      <option name="time" value="294" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/mqtt/TestClient.java" />
-    <entry file="file://$PROJECT_DIR$/src/entity/DeviceName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/DeviceAlarm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1904">
@@ -882,21 +880,7 @@
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/src/java/resources/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/src/main/java/resources/META-INF/MANIFEST.MF" />
-    <entry file="file://$PROJECT_DIR$/src/util/ByteUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="80" column="5" lean-forward="true" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_80/jre/lib/rt.jar!/java/util/Map.class" />
-    <entry file="file://$PROJECT_DIR$/src/entity/JiadeParams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="92" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kc_jd_drv.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -922,13 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1000">
           <caret line="64" column="13" lean-forward="false" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/BaseUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1001,7 +978,7 @@
         <state relative-caret-position="144">
           <caret line="9" column="50" lean-forward="false" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1011,7 +988,7 @@
         <state relative-caret-position="1904">
           <caret line="119" column="41" lean-forward="false" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1032,6 +1009,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MinaServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="47" column="50" lean-forward="false" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/ByteUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/HttpUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="896">
+          <caret line="69" column="54" lean-forward="false" selection-start-line="69" selection-start-column="54" selection-end-line="69" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/conf/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -1040,36 +1043,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/HttpUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/entity/JiadeParams.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="144">
+          <caret line="9" column="92" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="92" />
+          <folding>
+            <element signature="e#569#570#0" expanded="false" />
+            <element signature="e#620#621#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/BaseUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MinaServer.java">
+    <entry file="file://$PROJECT_DIR$/src/entity/Package.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="47" column="50" lean-forward="false" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="32">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/JDDeviceDefinitionCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="100" column="43" lean-forward="false" selection-start-line="100" selection-start-column="25" selection-end-line="100" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MessageHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="417" column="17" lean-forward="true" selection-start-line="417" selection-start-column="17" selection-end-line="417" selection-end-column="17" />
+        <state relative-caret-position="318">
+          <caret line="262" column="57" lean-forward="false" selection-start-line="262" selection-start-column="57" selection-end-line="262" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#sessionCreated#0;class#MessageHandler#0" expanded="false" />
-            <element signature="docComment;method#sessionClosed#0;class#MessageHandler#0" expanded="false" />
             <element signature="docComment;method#exceptionCaught#0;class#MessageHandler#0" expanded="false" />
             <element signature="docComment;method#sessionOpened#0;class#MessageHandler#0" expanded="false" />
             <element signature="docComment;method#messageReceived#0;class#MessageHandler#0" expanded="false" />
             <element signature="docComment;method#sendGatawayNoAddSN#0;class#MessageHandler#0" expanded="false" />
+            <element signature="e#25839#25840#0" expanded="true" />
+            <element signature="e#25867#25868#0" expanded="true" />
           </folding>
         </state>
       </provider>

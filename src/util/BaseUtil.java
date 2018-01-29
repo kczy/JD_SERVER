@@ -42,6 +42,28 @@ public class BaseUtil {
         return pck;
     }
 
+    public static String encodeHexStr2(int b){
+        b=b&0xff;
+        String pck=b>15?Integer.toString(b,16):"0"+Integer.toString(b,16);
+        return pck;
+    }
+    public static String byteToHexString(byte b){
+        StringBuilder stringBuilder = new StringBuilder("");
+        int v = b & 0xFF;
+        String hv = Integer.toHexString(v);
+        if (hv.length() < 2) {
+            stringBuilder.append(0);
+        }
+        stringBuilder.append(hv);
+        return stringBuilder.toString();
+    }
+    public static void main(String[] args) {
+        byte[] bts={(byte) 278};
+        System.out.println(bts[0]);
+
+        System.out.println(byteToHexString(bts[0]));
+        System.out.println(encodeHexStr2(bts[0]));
+    }
 
     /**
      * 将一个数字转换为二进制的数组表现形式 如：8------00001000
@@ -92,10 +114,6 @@ public class BaseUtil {
         return list;
     }
 
-    public static void main(String[] args) {
-        byte[] buf={101,49,52,99,99,48};
-        System.out.println(ByteUtil.bytesToHexString(buf));
-    }
 
 
     public static String intTranHexStr(int i){
