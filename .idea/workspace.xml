@@ -7,9 +7,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8572c8f3-3dee-41a6-8045-b30da2bf5a4e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/kc_jd_drv_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/kc_jd_drv_jar.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/kc_jd_drv_jar/kc_jd_drv.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$JDTimerTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MinaServer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/conf/Configuration.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/DeviceAlarm.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/DeviceEnum.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/DeviceName.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/DeviceState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/DmDeviceEnum.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/Event.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/Gateway.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/JDDeviceDefinitionCommand.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/JDTimerTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/JiadeParams.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/Mcu.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/Package.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/SecurityDeviceResponseVO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/factory/ByteDecodeFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/factory/JDDecoderFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/factory/Remove55DecoderFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/factory/SessionFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/CutDecoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDEncoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder$Context.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder$DEC_FSM_STATUS.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder9$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder9$Context.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/JDDecoder9.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/Remove55Decoder$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/Remove55Decoder$Context.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/filter/Remove55Decoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/hansen/EventNotify.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/hansen/Outer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/main/java/resources/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/mqtt/MtClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/mqtt/PushCallback.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/test/Test.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/BaseUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/ByteUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/Constant.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/HttpUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/ParseUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/ScannerGatawayTask$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/ScannerGatawayTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/Session.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/HttpUtil.java" afterPath="$PROJECT_DIR$/src/util/HttpUtil.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +76,8 @@
       <file leaf-file-name="MessageHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MessageHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1378">
-              <caret line="283" column="57" lean-forward="true" selection-start-line="283" selection-start-column="57" selection-end-line="283" selection-end-column="57" />
+            <state relative-caret-position="226">
+              <caret line="130" column="13" lean-forward="false" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#sessionCreated#0;class#MessageHandler#0" expanded="false" />
@@ -44,38 +93,8 @@
       <file leaf-file-name="JDDeviceDefinitionCommand.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entity/JDDeviceDefinitionCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="45" column="55" lean-forward="false" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/HttpUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceEnum.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entity/DeviceEnum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-431">
-              <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DmDeviceEnum.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entity/DmDeviceEnum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="48" column="56" lean-forward="false" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+            <state relative-caret-position="-889">
+              <caret line="37" column="28" lean-forward="false" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -200,9 +219,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="35" />
-    <option name="y" value="54" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="234" />
+    <option name="y" value="43" />
     <option name="width" value="1229" />
     <option name="height" value="694" />
   </component>
@@ -230,24 +249,6 @@
             <path>
               <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
               <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-              <item name="kc_jd_drv_jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
@@ -592,12 +593,12 @@
       <workItem from="1516757519493" duration="24130000" />
       <workItem from="1516930109641" duration="12536000" />
       <workItem from="1517189101299" duration="25484000" />
-      <workItem from="1517275618742" duration="12510000" />
+      <workItem from="1517275618742" duration="14025000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="906905000" />
+    <option name="totallyTimeSpent" value="908420000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -609,8 +610,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="35" y="54" width="1229" height="694" extended-state="1" />
-    <editor active="true" />
+    <frame x="234" y="43" width="1229" height="694" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.325" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -622,7 +622,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39700997" sideWeight="0.4973545" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792792" sideWeight="0.8576923" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23096664" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21300256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25469926" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -707,12 +707,6 @@
           <line>351</line>
           <properties />
           <option name="timeStamp" value="291" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>181</line>
-          <properties />
-          <option name="timeStamp" value="297" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/util/BaseUtil.java</url>
@@ -1056,6 +1050,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/HttpUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/DeviceEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-431">
@@ -1066,24 +1068,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/JDDeviceDefinitionCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="45" column="55" lean-forward="false" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/HttpUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+        <state relative-caret-position="-889">
+          <caret line="37" column="28" lean-forward="false" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MessageHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1378">
-          <caret line="283" column="57" lean-forward="true" selection-start-line="283" selection-start-column="57" selection-end-line="283" selection-end-column="57" />
+        <state relative-caret-position="226">
+          <caret line="130" column="13" lean-forward="false" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#sessionCreated#0;class#MessageHandler#0" expanded="false" />
