@@ -116,46 +116,7 @@ public class MessageHandler extends IoHandlerAdapter {
         ///////////////////////////////////
 
         ///////下发指令不准网关叫//////////
-        //FF FF    包头
-        // 00 10    长度
-        // 03       命令
-        // 3F       序号
-        // 00 00    flags
-        // 01       action
-        // 00       attr_flags
-        // 01       attr_flags
-        // 00
-        // 00
-        // 00
-        // 00
-        // 00
-        // 00
-        // 00
-        // 00
-        // 54       校验和
-        /*
-        byte[] cmd={(byte)0xFF,(byte)0xFF,//包头
-                (byte)0x00,(byte)0x10,      //包长度
-                (byte)0x03,                 //命令
-                (byte)0x00,                 //包序号
-                (byte)0x00,(byte)0x00,      //flags
-                (byte)0x01,                 //action
-                (byte)0x00,                 //attr_flags 11111111
-                (byte)0x01,                 //attr_flags 11111111
-                (byte)0x00,                 //attr_vals  byte0 00000000
-                (byte)0x00,                 //attr_vals  byte1
-                (byte)0x00,                 //attr_vals  byte2 00000000
-                (byte)0x00,                 //attr_vals  byte3 00000000
-                (byte)0x00,                 //attr_vals  byte4
-                (byte)0x00,                 //attr_vals  byte5
-                (byte)0x00,                 //attr_vals  byte6
-                (byte)0x00,                 //attr_vals  byte7
-                (byte)0x54                  //校验和
-        };
-        sendGatawayThroughByts(session,cmd);
-        */
-        //FFFF 0010 03 22 0000 01 00 02 02000000000000003A 开网指令，异曲同工
-        /////////////////////////////////
+        sendGatawayThroughByts(session,JDDeviceDefinitionCommand.CONTROL_GATEWAY_HOWL);
     }
 
 
