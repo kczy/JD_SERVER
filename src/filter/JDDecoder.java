@@ -82,10 +82,15 @@ public class JDDecoder extends CumulativeProtocolDecoder {
         Context ctx=getContext(ioSession,true);
         List<Byte> lsBuffer=ctx.getListBuffer();//搜集正确的包
         byte b=(byte)0x00;
-
+        //System.out.println("打印打印打印打印打印打印打印");
         //如果有数据就要拼包
         while (ioBuffer.hasRemaining()){
+
+
             b=ioBuffer.get();//获取一个,position加1
+
+//            System.out.printf(" %2X",b);
+//            System.out.println();
 
              /*断包重置*/
             if((ctx.lastByte==JD_POTO_HRAD[0])&&(b==JD_POTO_HRAD[1]))

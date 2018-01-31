@@ -40,7 +40,7 @@ public class MinaServer {
         cfg.setIdleTime(IdleStatus.BOTH_IDLE, 60);
 
         //设置读取缓冲区大小
-        cfg.setReadBufferSize(1024);//越小越看出问题
+        cfg.setReadBufferSize(4096);//越小越看出问题
         //cfg.setMinReadBufferSize(200);
         //cfg.setMaxReadBufferSize(200);
 

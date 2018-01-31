@@ -1,5 +1,6 @@
 package util;
 
+import conf.Configuration;
 import org.apache.http.*;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
@@ -14,29 +15,31 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+import java.util.logging.Level;
 
 public class HttpUtil {
-     static final  String CHARSET="UTF-8";
 
-
+    static final  String CHARSET="UTF-8";
     public static void main(String[] args) {
         try {
-            //doPostStr("http://127.0.0.1:8080/device/elder/security/security-device-jiade-impl","{{},{}}");
 
-           //HttpUtil.doPostStr("http://120.77.215.202:10055/device/elder/security/security-device-jiade-impl", "{\"type\":0,\"securityDeviceResponseVOList\":[{\"sno\":\"303030303631\",\"address\":\"/117.136.63.142:17153\",\"endpoint\":1,\"profile\":0,\"device\":1028,\"name\":\"遥控2\",\"state\":0,\"ieee\":\"d5e82a10004b1200\",\"clusterId\":0,\"electric\":0}]}");
-           // HttpUtil.doPostStr("http://171.208.222.97:9080/device/elder/security/security-device-jiade-impl", "{\"type\":0,\"securityDeviceResponseVOList\":[{\"sno\":\"303030303539\",\"address\":\"/223.104.254.208:23458\",\"endpoint\":0,\"profile\":0,\"device\":1028,\"name\":\"无线紧急按键\",\"state\":0,\"ieee\":\"d33a000000000000\",\"clusterId\":0,\"electric\":0},{\"sno\":\"303030303539\",\"address\":\"/223.104.254.208:23458\",\"endpoint\":0,\"profile\":0,\"device\":1026,\"name\":\"烟雾报警器\",\"state\":0,\"ieee\":\"5000c00000000000\",\"clusterId\":0,\"electric\":0},{\"sno\":\"303030303539\",\"address\":\"/223.104.254.208:23458\",\"endpoint\":0,\"profile\":0,\"device\":263,\"name\":\"红外感应器\",\"state\":0,\"ieee\":\"10b8e00000000000\",\"clusterId\":0,\"electric\":0}]}");
-            //HttpUtil.doPostStr("http://lib18610386362.oicp.net/icare-device-api/device/elder/security/security-device-jiade-impl", "{\"type\":1,\"securityDeviceResponseVOList\":[{\"sno\":\"303030303539\",\"address\":\"/223.104.255.137:4410\",\"endpoint\":0,\"profile\":0,\"device\":1026,\"name\":\"烟雾报警器\",\"state\":7,\"ieee\":\"5000c00000000000\",\"clusterId\":7,\"electric\":0}]}");
-            HttpUtil.doPostStr("http://lib18610386362.oicp.net/icare-device-api/device/elder/security/security-device-jiade-impl", "{\"type\":1,\"securityDeviceResponseVOList\":\n" +
-                    "[{\"sno\":\"303030303539\",\"address\":\"/223.104.254.126:57343\",\"endpoint\":0,\"profile\":0,\"device\":1028,\"name\":\"无线紧急按键\",\"state\":7,\"ieee\":\"d3aa000000000000\",\"clusterId\":0,\"electric\":0}{\"sno\":\"303030303539\",\"address\":\"/223.104.254.126:57343\",\"endpoint\":0,\"profile\":0,\"device\":1028,\"name\":\"无线紧急按键\",\"state\":0,\"ieee\":\"d3aa000000000000\",\"clusterId\":0,\"electric\":0},\n" +
-                    "" +
-                    "]}");
+
+         HttpUtil.doPostStr(
+                 Configuration.DEVICE_LIST,
+                 "{\"type\":2,\"securityDeviceResponseVOList\":[{\"sno\":\"303030303539\",\"profile\":0,\"state\":0}]}"
+         );
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static void doPostStr(String url,String dataJson) throws IOException {
+
+        //fileLogger.logp(Level.INFO, "ewrwerwer", "werwerw", "记录log?");
+
         CloseableHttpClient hc= HttpClients.createDefault();
         HttpPost httpPost =  new HttpPost(url);
 

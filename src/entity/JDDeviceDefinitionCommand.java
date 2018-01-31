@@ -109,7 +109,7 @@ public class JDDeviceDefinitionCommand {
 
 
     /**
-     * 控制网关鸣叫
+     * 打开凤鸣
      */
     public static byte[] CONTROL_GATEWAY_HOWL={
             //FF FF    包头
@@ -137,7 +137,7 @@ public class JDDeviceDefinitionCommand {
             (byte)0x01,                 //action
             (byte)0x00,                 //attr_flags
             (byte)0x01,                 //attr_flags
-            (byte)0x00,                 //attr_vals  byte0 00000000
+            (byte)0x01,                 //attr_vals  byte0 00000000
             (byte)0x00,                 //attr_vals  byte1
             (byte)0x00,                 //attr_vals  byte2 00000000
             (byte)0x00,                 //attr_vals  byte3 00000000
@@ -148,6 +148,50 @@ public class JDDeviceDefinitionCommand {
             (byte)0x54                  //校验和
             //FFFF 0010 03 22 0000 01 00 02 02000000000000003A 开网指令，异曲同工
             /////////////////////////////////
+    };
+    /**
+     * 关闭凤鸣
+     */
+    public static byte[] CONTROL_GATEWAY_NOTHOWL={
+            (byte)0xFF,(byte)0xFF,      //包头            0 1
+            (byte)0x00,(byte)0x10,      //包长度           2 3
+            (byte)0x03,                 //命令            4
+            (byte)0x00,                 //包序号           5
+            (byte)0x00,(byte)0x00,      //flags             6 7
+            (byte)0x01,                 //action            8
+            (byte)0x00,                 //attr_flags        9
+            (byte)0x41,                 //attr_flags        10
+            (byte)0x00,                 //attr_vals         11
+            (byte)0x00,                 //attr_vals         12
+            (byte)0x00,                 //attr_vals         13
+            (byte)0x00,                 //attr_vals         14
+            (byte)0x00,                 //attr_vals         15
+            (byte)0x00,                 //attr_vals         16
+            (byte)0x00,                 //attr_vals         17
+            (byte)0x00,                 //attr_vals         18
+            (byte)0x54                  //校验和
+    };
+    /**
+     * 蜂鸣器时长
+     */
+    public static byte[] CONTROL_GATEWAY_HOWL_LONG_TIME={
+            (byte)0xFF,(byte)0xFF,//包头
+            (byte)0x00,(byte)0x10,      //包长度
+            (byte)0x03,                 //命令
+            (byte)0x00,                 //包序号
+            (byte)0x00,(byte)0x00,      //flags
+            (byte)0x01,                 //action
+            (byte)0x00,                 //attr_flags
+            (byte)0x40,                 //attr_flags
+            (byte)0x00,                 //attr_vals  byte0 00000000
+            (byte)0x00,                 //attr_vals  byte1
+            (byte)0x00,                 //attr_vals  byte2 00000000
+            (byte)0x35,                 //attr_vals  byte3 00000000
+            (byte)0x00,                 //attr_vals  byte4
+            (byte)0x00,                 //attr_vals  byte5
+            (byte)0x00,                 //attr_vals  byte6
+            (byte)0x00,                 //attr_vals  byte7
+            (byte)0x54                  //校验和
     };
 
     /*
@@ -176,4 +220,8 @@ public class JDDeviceDefinitionCommand {
     public static final int KC_MSG_DBG_CMD = (byte) 0xF9;
     public static final int KC_MSG_DBG_CMD_GET_LIST = (byte) 0x01;
     public static final int KC_MSG_DBG_CMD_GET_GW_STATUS = (byte) 0x02;
+    public static final int KC_MSG_DBG_CMD_SET_OPEN_BEEP = (byte) 0x03;
+    public static final int KC_MSG_DBG_CMD_SET_CLOSE_BEEP = (byte) 0x04;
+    public static final int KC_MSG_DBG_CMD_SET_BEEP_TIME = (byte) 0x05;
+    public static final int KC_MSG_DBG_CMD_GET_GW_ATTR = (byte) 0x06;
 }

@@ -24,6 +24,7 @@ public class ParseUtil {
         }
         return sb.toString();
     }
+
     public static String getID2(byte[] bts){
         StringBuilder sb=new StringBuilder();
         int num=0;
