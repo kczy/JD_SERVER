@@ -24,7 +24,7 @@ public class Configuration {
     /**
      * 通用
      */
-    public static String DEVICE_LIST=DEVICE_LIST_LIBIN;
+    public static String DEVICE_LIST=DEVICE_LIST_ALIYUN;
 
 
 }
