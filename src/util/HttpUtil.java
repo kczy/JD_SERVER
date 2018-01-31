@@ -26,7 +26,7 @@ public class HttpUtil {
 
          HttpUtil.doPostStr(
                  Configuration.DEVICE_LIST,
-                 "{\"type\":2,\"securityDeviceResponseVOList\":[{\"sno\":\"303030303539\",\"profile\":0,\"state\":0}]}"
+                 "{\"type\":2,\"securityDeviceResponseVOList\":[{\"sno\":\"303030303539\",\"profile\":0,\"state\":6}]}"
          );
 
 
