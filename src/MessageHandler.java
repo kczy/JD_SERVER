@@ -26,34 +26,32 @@ public class MessageHandler extends IoHandlerAdapter {
 
 
     //////////////////////////////////////////////////////////////////////
-    private static Logger fileLogger;
-
-    static {
-        fileLogger = Logger.getLogger(MessageHandler.class.getName());
-        fileLogger.setLevel(Level.INFO);
-        Handler[] hs = fileLogger.getHandlers();
-        for (Handler h : hs) {
-            h.close();
-            fileLogger.removeHandler(h);
-        }
-        try {
-            //文件 日志文件名为mylog 日志最大写入为4000个字节 保存5天内的日志文件 如果文件没有达到规定大小则将日志文件添加到已有文件
-            CustomFileStreamHandler fh = new CustomFileStreamHandler("/home/lzh/mylog", 0, 1000, true);
-            fh.setEncoding("UTF-8");
-            fh.setFormatter(new CustomFormatter());
-            fileLogger.setUseParentHandlers(false);
-            fileLogger.addHandler(fh);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
+//    private static Logger fileLogger;
+//
+//    static {
+//        fileLogger = Logger.getLogger(MessageHandler.class.getName());
+//        fileLogger.setLevel(Level.INFO);
+//        Handler[] hs = fileLogger.getHandlers();
+//        for (Handler h : hs) {
+//            h.close();
+//            fileLogger.removeHandler(h);
+//        }
+//        try {
+//            //文件 日志文件名为mylog 日志最大写入为4000个字节 保存5天内的日志文件 如果文件没有达到规定大小则将日志文件添加到已有文件
+//            CustomFileStreamHandler fh = new CustomFileStreamHandler("E:/mylog.txt", 0, 1000, true);
+//            fh.setEncoding("UTF-8");
+//            fh.setFormatter(new CustomFormatter());
+//            fileLogger.setUseParentHandlers(false);
+//            fileLogger.addHandler(fh);
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+//    }
     //////////////////////////////////////////////////////////////////////
 
 
     static Logger log = Logger.getLogger(MinaServer.class.getName());
-    String logPath = "/home/lzh/mylog";//这个是你指定的log文件的路径
-    FileHandler fileHandler = new FileHandler(logPath);
-    //fileHandler.setFormatter(new FimpleFormatter());
+
 
     public static Gson gson = new Gson();
     public static int count = 0;
@@ -287,13 +285,22 @@ public class MessageHandler extends IoHandlerAdapter {
                         sendToAPPServer(0, devices);
                         //解析包含报警的设备放入temp
                         List<SecurityDeviceResponseVO> temp = new ArrayList<>();
+
                         //是否报警
                         boolean srnOn=false;
                         //判断devices里面的报警对象
                         for (SecurityDeviceResponseVO device : devices) {
                             if (device.getState() == 7) {
+                                System.out.println("**********"+device.getName()+"报警了*********");
                                 temp.add(device);
+                                if(device.getDevice()==263||device.getDevice()==264){//门磁或者红外
+                                    srnOn=true;
+                                }
                             }
+                        }
+                        //如果列表中没有门磁和红外则打开蜂鸣器
+                        if(!srnOn){
+                            sendGatawayThroughByts(session,JDDeviceDefinitionCommand.CONTROL_GATEWAY_HOWL);
                         }
                         if (temp != null && temp.size() > 0) {
                             sendToAPPServer(1, temp);
@@ -594,7 +601,7 @@ public class MessageHandler extends IoHandlerAdapter {
         log.info("设备列表json：" + jsonString);
         try {
 
-            fileLogger.logp(Level.INFO, MessageHandler.class.getName(), "sendToAPPServer", "推送json到APPServer");
+            //fileLogger.logp(Level.INFO, MessageHandler.class.getName(), "sendToAPPServer", "推送json到APPServer");
             HttpUtil.doPostStr(Configuration.DEVICE_LIST, jsonString);
 
         } catch (IOException e) {
@@ -657,10 +664,14 @@ public class MessageHandler extends IoHandlerAdapter {
         jdTimerTask.setSession(session);
         MessageHandler.timer.schedule(jdTimerTask, 60000, 10000);
     }
+
+
     public static class JDTimerTask extends TimerTask{
         public IoSession session;
-        public JDTimerTask(IoSession session){
+        public Timer timer;
+        public JDTimerTask(IoSession session,Timer timer){
             session=session;
+            timer=timer;
         }
         public JDTimerTask(){}
         public IoSession getSession() {
@@ -675,7 +686,7 @@ public class MessageHandler extends IoHandlerAdapter {
         public void run() {
             //网关请求列表
             //sendGataway(session, "FFFF00080324000005030138");
-            sendGatawayThroughByts(session,JDDeviceDefinitionCommand.SCAN_DEVICES_LIST);
+            sendGatawayThroughByts(session,JDDeviceDefinitionCommand.CONTROL_GATEWAY_NOTHOWL);
             timer.cancel();
         }
     }
