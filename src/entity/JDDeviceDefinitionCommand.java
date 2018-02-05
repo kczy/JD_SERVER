@@ -40,10 +40,66 @@ public class JDDeviceDefinitionCommand {
     public static byte[] SCAN_DEVICES_LIST={
             (byte)0xFF, (byte)0xFF, //包头
             (byte)0x00,(byte)0x08,  //包长度
-            (byte)0x03,                   //命令
+            (byte)0x03,             //命令
             (byte)0x24,
             (byte)0x00,(byte)0x00,
             (byte)0x05,(byte)0x03,(byte)0x01,(byte)0x38
+    };
+
+    /**
+     * 关闭报警设备的报警状态
+     FF FF
+     00 18
+     03
+     05
+     00 00
+     05"+
+     "02" + //透传命令
+     macStr + //透传IEEEE
+     "0000" + //透传填充短地址
+     "00" + //透传填充endpoeint
+     "0000" + //透传填充ProfileID
+     "0000" + //透传填充DeviceID
+     zontypeStr + //透传填充ZoneType
+     "F1"
+     */
+    public static byte[] CLOSE_DEVICES_ARM_STATE={
+            (byte)0xFF, (byte)0xFF, //包头
+            (byte)0x00,(byte)0x18,  //包长度
+            (byte)0x03,             //命令
+            (byte)0x3A,             //包序号
+            (byte)0x00,(byte)0x00,  //flags
+            (byte)0x05,             //action
+            (byte)0x05,             //透传命令
+            (byte)0x00,(byte)0x00,  //IEEE i=10 i<18
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,  //短地址
+            (byte)0x00,             //endpoint
+            (byte)0x00,(byte)0x00,  //profileID
+            (byte)0x00,(byte)0x00,  //DeviceID
+            (byte)0x00,(byte)0x00,  //ZoneType
+            (byte)0x00,(byte)0x00,  //32字节产品名称
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,(byte)0x00,
+            (byte)0x00,             //当前状态
+            (byte)0x80,             //设置
+            (byte)0x00,             //型号强度
+            (byte)0x00              //checksum
     };
 
     /**
@@ -108,30 +164,7 @@ public class JDDeviceDefinitionCommand {
     };
 
 
-    /**
-     * 打开凤鸣
-     */
-    public static byte[] CONTROL_GATEWAY_HOWL={
-            (byte)0xFF,(byte)0xFF,//包头
-            (byte)0x00,(byte)0x10,      //包长度
-            (byte)0x03,                 //命令
-            (byte)0x00,                 //包序号
-            (byte)0x00,(byte)0x00,      //flags
-            (byte)0x01,                 //action
-            (byte)0x00,                 //attr_flags
-            (byte)0x041,                 //attr_flags
-            (byte)0x01,                 //attr_vals  byte0 00000000
-            (byte)0x00,                 //attr_vals  byte1
-            (byte)0x00,                 //attr_vals  byte2 00000000
-            (byte)0x10,                 //attr_vals  byte3 00000000
-            (byte)0x00,                 //attr_vals  byte4
-            (byte)0x00,                 //attr_vals  byte5
-            (byte)0x00,                 //attr_vals  byte6
-            (byte)0x00,                 //attr_vals  byte7
-            (byte)0x54                  //校验和
-            //FFFF 0010 03 22 0000 01 00 02 02000000000000003A 开网指令，异曲同工
-            /////////////////////////////////
-    };
+
     /**
      * 关闭凤鸣
      */
@@ -169,14 +202,44 @@ public class JDDeviceDefinitionCommand {
             (byte)0x00,                 //attr_vals  byte0 00000000
             (byte)0x00,                 //attr_vals  byte1
             (byte)0x00,                 //attr_vals  byte2 00000000
-            (byte)0x35,                 //attr_vals  byte3 00000000
+            (byte)0x10,                 //attr_vals  byte3 00000000
             (byte)0x00,                 //attr_vals  byte4
             (byte)0x00,                 //attr_vals  byte5
             (byte)0x00,                 //attr_vals  byte6
             (byte)0x00,                 //attr_vals  byte7
             (byte)0x54                  //校验和
     };
+    /**
+     * 打开凤鸣
+     */
+    public static byte[] CONTROL_GATEWAY_HOWL={
+            (byte)0xFF,(byte)0xFF,//包头
+            (byte)0x00,(byte)0x10,      //包长度
+            (byte)0x03,                 //命令
+            (byte)0x00,                 //包序号
+            (byte)0x00,(byte)0x00,      //flags
+            (byte)0x01,                 //action
+            (byte)0x00,                 //attr_flags
+            (byte)0x01,                 //attr_flags
+            (byte)0x01,                 //attr_vals  byte0 00000000
+            (byte)0x00,                 //attr_vals  byte1
+            (byte)0x00,                 //attr_vals  byte2 00000000
+            (byte)0x00,                 //attr_vals  byte3 00000000
+            (byte)0x00,                 //attr_vals  byte4
+            (byte)0x00,                 //attr_vals  byte5
+            (byte)0x00,                 //attr_vals  byte6
+            (byte)0x00,                 //attr_vals  byte7
+            (byte)0x54                  //校验和
+            //FFFF 0010 03 22 0000 01 00 02 02000000000000003A 开网指令，异曲同工
+            /////////////////////////////////
+    };
 
+    /**
+     * APP添加设备
+     */
+    public byte[] addSonDevice={
+
+    };
     /*
     *以下定义的是嘉德方定义的命令，即网关上报消息的命令 和 我们自定义的消息即APP后台发送给mina或者mina发送给app的指令约定
     * 按道理APP后端只需要封装一个Mina客户端工具类即可和mina服务端传输对象。
@@ -188,12 +251,21 @@ public class JDDeviceDefinitionCommand {
     public static final int JD_MSG_CMD_UP_GW_SN_ACK = 4;
     public static final int JD_MSG_CMD_UP_DEV_STATUS = 5;
     public static final int JD_MSG_CMD_UP_TIME = 0x17;
+
+
+    public static final int JD_MSG_CMD_DOWN_DEV_STATUS=3;//读取设备的当前状态
+
+
+
     /*TODO:相关指令存在误触发（JD协议里面有CMD=该字段）*/
     public static final int KC_MSG_CMD_ADD_DEV = 81;          //添加网关
     public static final int KC_MSG_CMD_CHECK_GW_EXSIT = 82;   //检查网关是否存在或在线
     public static final int KC_MSG_CMD_DEK_DEV = 83;
     public static final int KC_MSG_CMD_SELECT_LIST=84;        //查询子设备列表
     public static final int KC_MSG_CMD_CONTROL_HOWL=85;       //控制设备鸣叫
+
+    public static final int KC_MSG_CMD_APP=90;                  //APP角色认证
+    public static final int KC_MSG_CMD_APP_REGISTER=0;          //APP角色认证注册
 
     public static final int JD_MSG_CMD_ACTION_INDEX = 8;//网关回复心跳
     public static final int JD_MSG_CMD_ACTION_TF = 6;/*透传指令*/
@@ -207,4 +279,10 @@ public class JDDeviceDefinitionCommand {
     public static final int KC_MSG_DBG_CMD_SET_CLOSE_BEEP = (byte) 0x04;
     public static final int KC_MSG_DBG_CMD_SET_BEEP_TIME = (byte) 0x05;
     public static final int KC_MSG_DBG_CMD_GET_GW_ATTR = (byte) 0x06;
+
+    public static void main(String[] args) {
+        int data=00000001;
+        data= (byte) (data<<7);
+        System.out.println(data);
+    }
 }

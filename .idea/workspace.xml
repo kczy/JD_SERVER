@@ -7,16 +7,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8572c8f3-3dee-41a6-8045-b30da2bf5a4e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/kc_jd_drv_jar/kc_jd_drv.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/log/CustomFileStreamHandler$MeteredStream.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/log/CustomFileStreamHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/log/CustomFormatter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/log/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/ScannerGatawayTask$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/ScannerGatawayTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/util/Session.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/log/CustomFileStreamHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/log/CustomFormatter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/log/Main.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/util/ScannerGatawayTask.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/kc_jd_drv_jar/kc_jd_drv.jar" afterPath="$PROJECT_DIR$/out/artifacts/kc_jd_drv_jar/kc_jd_drv.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$1.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$2.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$3.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$JDTimerTask.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler$JDTimerTask.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/MessageHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/DmDeviceEnum.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/DmDeviceEnum.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/MinaServer.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/MinaServer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/conf/Configuration.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/conf/Configuration.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/JDDeviceDefinitionCommand.class" afterPath="$PROJECT_DIR$/out/production/kc_jd_drv/entity/JDDeviceDefinitionCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/DmDeviceEnum.java" afterPath="$PROJECT_DIR$/src/entity/DmDeviceEnum.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MessageHandler.java" afterPath="$PROJECT_DIR$/src/MessageHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MinaServer.java" afterPath="$PROJECT_DIR$/src/MinaServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/conf/Configuration.java" afterPath="$PROJECT_DIR$/src/conf/Configuration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/JDDeviceDefinitionCommand.java" afterPath="$PROJECT_DIR$/src/entity/JDDeviceDefinitionCommand.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,25 +50,41 @@
       <file leaf-file-name="MessageHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MessageHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="289" column="44" lean-forward="true" selection-start-line="289" selection-start-column="44" selection-end-line="289" selection-end-column="44" />
+            <state relative-caret-position="180">
+              <caret line="490" column="0" lean-forward="true" selection-start-line="490" selection-start-column="0" selection-end-line="490" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="docComment;method#sessionCreated#0;class#MessageHandler#0" expanded="false" />
-                <element signature="e#3231#3257#0" expanded="true" />
-                <element signature="docComment;method#exceptionCaught#0;class#MessageHandler#0" expanded="false" />
-                <element signature="docComment;method#sessionOpened#0;class#MessageHandler#0" expanded="false" />
-                <element signature="docComment;method#messageReceived#0;class#MessageHandler#0" expanded="false" />
-                <element signature="e#8745#8771#0" expanded="true" />
-                <element signature="e#13802#14239#0" expanded="true" />
-                <element signature="e#14238#14239#0" expanded="true" />
-                <element signature="e#15334#15774#0" expanded="true" />
-                <element signature="e#15773#15774#0" expanded="true" />
-                <element signature="method#DbgIfForJd#0;class#MessageHandler#0" expanded="false" />
-                <element signature="docComment;method#sendGatawayNoAddSN#0;class#MessageHandler#0" expanded="false" />
-                <element signature="e#27458#27777#0" expanded="true" />
-                <element signature="e#27776#27777#0" expanded="true" />
+                <element signature="method#sessionClosed#0;class#MessageHandler#0" expanded="false" />
+                <element signature="e#2109#2135#0" expanded="true" />
+                <element signature="method#exceptionCaught#0;class#MessageHandler#0" expanded="false" />
+                <element signature="e#7598#7624#0" expanded="true" />
+                <element signature="e#13231#13668#0" expanded="true" />
+                <element signature="e#13667#13668#0" expanded="true" />
+                <element signature="e#14762#15202#0" expanded="true" />
+                <element signature="e#15201#15202#0" expanded="true" />
+                <element signature="e#28169#28488#0" expanded="true" />
+                <element signature="e#28487#28488#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParseUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/ParseUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="129" column="37" lean-forward="false" selection-start-line="129" selection-start-column="37" selection-end-line="129" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DmDeviceEnum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entity/DmDeviceEnum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -60,18 +92,8 @@
       <file leaf-file-name="JDDeviceDefinitionCommand.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entity/JDDeviceDefinitionCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="121" column="37" lean-forward="true" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Configuration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/conf/Configuration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="326">
+              <caret line="284" column="31" lean-forward="true" selection-start-line="284" selection-start-column="31" selection-end-line="284" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -107,7 +129,6 @@
       <find>Constant.SESSION_ATTR_VAL_GW_TYPE_ZIGBEE</find>
       <find>session.getAttribute(&quot;pcgNumber&quot;)</find>
       <find>pcgNumber</find>
-      <find>send</find>
       <find>StringBuilder</find>
       <find>timer</find>
       <find>ScannerDeviceList(session);</find>
@@ -115,6 +136,8 @@
       <find>Timer</find>
       <find>网关收到服务器的指令</find>
       <find>JDTimerTask</find>
+      <find>Sen</find>
+      <find>send</find>
     </findStrings>
     <replaceStrings>
       <replace>Constant.SESSION_ATTR_KEY_GW_TYPE</replace>
@@ -131,9 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/filter/JDDEncoder.java" />
-        <option value="$PROJECT_DIR$/src/entity/Event.java" />
-        <option value="$PROJECT_DIR$/src/hansen/EventNotify.java" />
         <option value="$PROJECT_DIR$/src/entity/DeviceAlarm.java" />
         <option value="$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/core/service/IoHandlerAdapter.class" />
         <option value="$PROJECT_DIR$/src/mqtt/PushCallback2.java" />
@@ -170,16 +190,19 @@
         <option value="$PROJECT_DIR$/src/filter/JDDecoder.java" />
         <option value="$PROJECT_DIR$/src/util/ParseUtil.java" />
         <option value="$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/core/service/IoService.class" />
-        <option value="$PROJECT_DIR$/src/MinaServer.java" />
         <option value="$PROJECT_DIR$/src/log/CustomFileStreamHandler.java" />
         <option value="$PROJECT_DIR$/src/log/CustomFormatter.java" />
         <option value="$PROJECT_DIR$/src/log/Main.java" />
-        <option value="$PROJECT_DIR$/src/conf/Configuration.java" />
         <option value="$PROJECT_DIR$/src/filter/ControlHowlFilter.java" />
         <option value="$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/filter/codec/CumulativeProtocolDecoder.class" />
         <option value="$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/filter/codec/ProtocolDecoderAdapter.class" />
         <option value="$PROJECT_DIR$/src/entity/DmDeviceEnum.java" />
         <option value="$PROJECT_DIR$/src/util/HttpUtil.java" />
+        <option value="$PROJECT_DIR$/src/util/LoggerUtils.java" />
+        <option value="$PROJECT_DIR$/src/LoggerUtils.java" />
+        <option value="$PROJECT_DIR$/src/conf/Configuration.java" />
+        <option value="$PROJECT_DIR$/lib/httpclient-4.5.3.jar!/org/apache/http/impl/client/CloseableHttpClient.class" />
+        <option value="$PROJECT_DIR$/src/MinaServer.java" />
         <option value="$PROJECT_DIR$/src/entity/JDDeviceDefinitionCommand.java" />
         <option value="$PROJECT_DIR$/src/MessageHandler.java" />
       </list>
@@ -197,11 +220,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="616" />
-    <option name="y" value="58" />
-    <option name="width" value="1170" />
-    <option name="height" value="699" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="69" />
+    <option name="y" value="15" />
+    <option name="width" value="1268" />
+    <option name="height" value="713" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -221,15 +244,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
               <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="kc_jd_drv_jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
@@ -258,36 +296,33 @@
               <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
               <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="log" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jd_server_git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jd_server_git" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../new_icare" />
     <property name="SearchEverywhereHistoryKey" value="Http&#9;FILE&#9;file://E:/IdeaProjects/jd_server_git/src/util/HttpUtil.java&#10;Con&#9;FILE&#9;file://E:/IdeaProjects/jd_server_git/src/conf/Configuration.java&#10;TUDO&#9;null&#9;null&#10;Se&#9;FILE&#9;file://E:/IdeaProjects/kc_jd_drv/src/factory/SessionFactory.java&#10;TODO&#9;ACTION&#9;ActivateTODOToolWindow&#10;TOD&#9;ACTION&#9;ActivateTODOToolWindow&#10;tod&#9;ACTION&#9;ActivateTODOToolWindow&#10;Outer&#9;FILE&#9;file://E:/IdeaProjects/mina/src/hansen/Outer.java&#10;Dm&#9;FILE&#9;file://E:/IdeaProjects/mina/src/entity/DmDeviceEnum.java&#10;Device&#9;PSI&#9;JAVA://entity.DeviceEnum&#10;De&#9;FILE&#9;file://E:/IdeaProjects/mina/src/entity/DmDeviceEnum.java&#10;Devic&#9;PSI&#9;JAVA://entity.DeviceEnum&#10;Ou&#9;FILE&#9;file://E:/IdeaProjects/mina/src/hansen/Outer.java&#10;Out&#9;FILE&#9;file://E:/IdeaProjects/mina/src/hansen/Outer.java&#10;EntryImpl&#9;PSI&#9;JAVA://org.apache.mina.core.filterchain.DefaultIoFilterChain.EntryImpl&#10;EntryI&#9;PSI&#9;JAVA://org.apache.mina.core.filterchain.DefaultIoFilterChain.EntryImpl&#10;Entry.class&#9;FILE&#9;jar://E:/IdeaProjects/mina/lib/ognl-3.1.11.jar!/ognl/internal/Entry.class" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="util" />
       <recent name="" />
       <recent name="entity" />
       <recent name="hansen" />
       <recent name="factory" />
-      <recent name="filter" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\IdeaProjects\mina\lib" />
@@ -306,44 +341,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.MinaServer">
-    <configuration name="BaseUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="util.BaseUtil" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="kc_jd_drv" />
-      <envs />
-    </configuration>
-    <configuration name="DeviceState" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="entity.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="entity.DeviceState" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="kc_jd_drv" />
-      <envs />
-    </configuration>
     <configuration name="HttpUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -363,14 +360,42 @@
       <module name="kc_jd_drv" />
       <envs />
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="JDDeviceDefinitionCommand" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="log.*" />
+          <option name="PATTERN" value="entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="log.Main" />
+      <option name="MAIN_CLASS_NAME" value="entity.JDDeviceDefinitionCommand" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="kc_jd_drv" />
+      <envs />
+    </configuration>
+    <configuration name="LoggerUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="LoggerUtils" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="kc_jd_drv" />
+      <envs />
+    </configuration>
+    <configuration name="MessageHandler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="MessageHandler" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -491,18 +516,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.MinaServer" />
-      <item index="1" class="java.lang.String" itemvalue="Application.DeviceState" />
-      <item index="2" class="java.lang.String" itemvalue="Application.HttpUtil" />
-      <item index="3" class="java.lang.String" itemvalue="Application.BaseUtil" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="Application.HttpUtil" />
+      <item index="2" class="java.lang.String" itemvalue="Application.LoggerUtils" />
+      <item index="3" class="java.lang.String" itemvalue="Application.MessageHandler" />
+      <item index="4" class="java.lang.String" itemvalue="Application.JDDeviceDefinitionCommand" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.MinaServer" />
-        <item index="1" class="java.lang.String" itemvalue="Application.HttpUtil" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="3" class="java.lang.String" itemvalue="Application.BaseUtil" />
-        <item index="4" class="java.lang.String" itemvalue="Application.DeviceState" />
+        <item index="1" class="java.lang.String" itemvalue="Application.JDDeviceDefinitionCommand" />
+        <item index="2" class="java.lang.String" itemvalue="Application.MessageHandler" />
+        <item index="3" class="java.lang.String" itemvalue="Application.LoggerUtils" />
+        <item index="4" class="java.lang.String" itemvalue="Application.HttpUtil" />
       </list>
     </recent_temporary>
   </component>
@@ -604,11 +629,15 @@
       <workItem from="1517275618742" duration="22316000" />
       <workItem from="1517361911591" duration="39812000" />
       <workItem from="1517469635029" duration="4158000" />
+      <workItem from="1517535937584" duration="36435000" />
+      <workItem from="1517624291805" duration="1304000" />
+      <workItem from="1517629412442" duration="29124000" />
+      <workItem from="1517793587111" duration="827000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="960681000" />
+    <option name="totallyTimeSpent" value="1043323000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -620,27 +649,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="616" y="58" width="1170" height="699" extended-state="0" />
+    <frame x="69" y="15" width="1268" height="713" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.325" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31358886" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43543047" sideWeight="0.30769232" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3996724" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33097345" sideWeight="0.5011338" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39700997" sideWeight="0.4973545" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792792" sideWeight="0.8576923" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3420139" sideWeight="0.5011338" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5520833" sideWeight="0.8576923" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21621622" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18874173" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2788618" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2303207" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.6923077" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952547" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46006945" sideWeight="0.6923077" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.359375" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -690,55 +719,62 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/entity/DeviceState.java</url>
-          <line>39</line>
+          <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
+          <line>334</line>
           <properties />
-          <option name="timeStamp" value="289" />
+          <option name="timeStamp" value="321" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>301</line>
+          <line>318</line>
           <properties />
-          <option name="timeStamp" value="307" />
+          <option name="timeStamp" value="324" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
-          <line>289</line>
+          <line>314</line>
           <properties />
-          <option name="timeStamp" value="308" />
+          <option name="timeStamp" value="325" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
+          <line>356</line>
+          <properties />
+          <option name="timeStamp" value="326" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
+          <line>460</line>
+          <properties />
+          <option name="timeStamp" value="328" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
+          <line>256</line>
+          <properties />
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
+          <line>433</line>
+          <properties />
+          <option name="timeStamp" value="330" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MessageHandler.java</url>
+          <line>439</line>
+          <properties />
+          <option name="timeStamp" value="331" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="311" />
+      <option name="time" value="332" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TestCase/TestCase.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="147" lean-forward="false" selection-start-line="5" selection-start-column="147" selection-end-line="5" selection-end-column="147" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/core/buffer/AbstractIoBuffer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="294" column="58" lean-forward="true" selection-start-line="294" selection-start-column="58" selection-end-line="294" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/filter/codec/ProtocolCodecFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1161">
-          <caret line="137" column="43" lean-forward="true" selection-start-line="137" selection-start-column="43" selection-end-line="137" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_144/src.zip!/java/util/Timer.java" />
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_144/src.zip!/java/util/TimerTask.java" />
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/src/java/resources/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/src/main/java/resources/META-INF/MANIFEST.MF" />
@@ -764,13 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/ScannerGatawayTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1000">
-          <caret line="64" column="13" lean-forward="false" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/core/session/IoSession.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-564">
@@ -789,14 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="55" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -888,16 +909,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/log/CustomFormatter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/log/CustomFormatter.java" />
     <entry file="jar://C:/java/jdk1.7.0_80/src.zip!/java/util/logging/Level.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -905,20 +917,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/log/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="44" column="74" lean-forward="true" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/log/CustomFileStreamHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2373">
-          <caret line="209" column="18" lean-forward="false" selection-start-line="209" selection-start-column="18" selection-end-line="209" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/log/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/log/CustomFileStreamHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/entity/DeviceState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -955,13 +955,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/filter/JDDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/filter/ControlHowlFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -984,14 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MinaServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-111">
-          <caret line="42" column="34" lean-forward="false" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/BaseUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
@@ -1006,73 +991,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/DmDeviceEnum.java">
+    <entry file="jar://C:/java/jdk1.7.0_80/src.zip!/java/util/Formatter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="86" column="53" lean-forward="false" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
+        <state relative-caret-position="29536">
+          <caret line="1896" column="11" lean-forward="false" selection-start-line="1896" selection-start-column="11" selection-end-line="1896" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/ParseUtil.java">
+    <entry file="jar://C:/java/jdk1.7.0_80/src.zip!/java/util/Locale.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
-          <caret line="97" column="49" lean-forward="false" selection-start-line="97" selection-start-column="49" selection-end-line="97" selection-end-column="49" />
+        <state relative-caret-position="11120">
+          <caret line="762" column="35" lean-forward="false" selection-start-line="762" selection-start-column="25" selection-end-line="762" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LoggerUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="48" column="42" lean-forward="false" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="55" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/ScannerGatawayTask.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient-4.5.3.jar!/org/apache/http/impl/client/CloseableHttpClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-395">
+          <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MinaServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/LoggerUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="52" column="46" lean-forward="true" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/HttpUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/core/filterchain/DefaultIoFilterChain.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="822" column="0" lean-forward="false" selection-start-line="822" selection-start-column="0" selection-end-line="822" selection-end-column="0" />
+        <state relative-caret-position="320">
+          <caret line="31" column="43" lean-forward="true" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/conf/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/filter/JDDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="85" column="19" lean-forward="true" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
+          <folding>
+            <element signature="e#6324#6325#0" expanded="true" />
+            <element signature="e#6365#6366#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/mina-core-2.0.16.jar!/org/apache/mina/core/filterchain/DefaultIoFilterChain.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="818" column="0" lean-forward="true" selection-start-line="818" selection-start-column="0" selection-end-line="818" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/ParseUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="129" column="37" lean-forward="false" selection-start-line="129" selection-start-column="37" selection-end-line="129" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/DmDeviceEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/JDDeviceDefinitionCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="121" column="37" lean-forward="true" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
+        <state relative-caret-position="326">
+          <caret line="284" column="31" lean-forward="true" selection-start-line="284" selection-start-column="31" selection-end-line="284" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MessageHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="289" column="44" lean-forward="true" selection-start-line="289" selection-start-column="44" selection-end-line="289" selection-end-column="44" />
+        <state relative-caret-position="180">
+          <caret line="490" column="0" lean-forward="true" selection-start-line="490" selection-start-column="0" selection-end-line="490" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;method#sessionCreated#0;class#MessageHandler#0" expanded="false" />
-            <element signature="e#3231#3257#0" expanded="true" />
-            <element signature="docComment;method#exceptionCaught#0;class#MessageHandler#0" expanded="false" />
-            <element signature="docComment;method#sessionOpened#0;class#MessageHandler#0" expanded="false" />
-            <element signature="docComment;method#messageReceived#0;class#MessageHandler#0" expanded="false" />
-            <element signature="e#8745#8771#0" expanded="true" />
-            <element signature="e#13802#14239#0" expanded="true" />
-            <element signature="e#14238#14239#0" expanded="true" />
-            <element signature="e#15334#15774#0" expanded="true" />
-            <element signature="e#15773#15774#0" expanded="true" />
-            <element signature="method#DbgIfForJd#0;class#MessageHandler#0" expanded="false" />
-            <element signature="docComment;method#sendGatawayNoAddSN#0;class#MessageHandler#0" expanded="false" />
-            <element signature="e#27458#27777#0" expanded="true" />
-            <element signature="e#27776#27777#0" expanded="true" />
+            <element signature="method#sessionClosed#0;class#MessageHandler#0" expanded="false" />
+            <element signature="e#2109#2135#0" expanded="true" />
+            <element signature="method#exceptionCaught#0;class#MessageHandler#0" expanded="false" />
+            <element signature="e#7598#7624#0" expanded="true" />
+            <element signature="e#13231#13668#0" expanded="true" />
+            <element signature="e#13667#13668#0" expanded="true" />
+            <element signature="e#14762#15202#0" expanded="true" />
+            <element signature="e#15201#15202#0" expanded="true" />
+            <element signature="e#28169#28488#0" expanded="true" />
+            <element signature="e#28487#28488#0" expanded="true" />
           </folding>
         </state>
       </provider>
