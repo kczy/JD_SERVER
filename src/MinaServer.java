@@ -37,10 +37,10 @@ public class MinaServer {
         IoSessionConfig cfg = acceptor.getSessionConfig();
 
         // 读写通道30秒内无操作进入空闲状态,进入空闲后立马发送嘉德指定的心跳包维持连接
-        cfg.setIdleTime(IdleStatus.BOTH_IDLE, 60);
+        cfg.setIdleTime(IdleStatus.BOTH_IDLE, 30);
 
         //设置读取缓冲区大小
-        cfg.setReadBufferSize(4096);//越小越看出问题
+        cfg.setReadBufferSize(512);//越小越看出问题
         //cfg.setMinReadBufferSize(200);
         //cfg.setMaxReadBufferSize(200);
 
@@ -69,7 +69,7 @@ public class MinaServer {
             acceptor.bind(socket);
             log.log(Level.INFO,"【服务启动成功，端口号为:"+port+"】");
         } catch (IOException e) {
-            log.log(Level.SEVERE,"【端口绑定错误"+e.toString()+"】");
+            log.log(Level.INFO,"【端口绑定错误"+e.toString()+"】");
             acceptor.unbind(socket);
         }finally {
             acceptor.unbind(new InetSocketAddress(port));

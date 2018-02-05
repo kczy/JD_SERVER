@@ -20,8 +20,8 @@ public enum DmDeviceEnum {
     DM_DEVICE_ENUM_0028(0x0028,29,"烟雾报警器"),
     DM_DEVICE_ENUM_0225(0x002C,30,"无线紧急按键"),
     DM_DEVICE_ENUM_8AAA(0x8AAA,31,"门铃感应器"),
-//    DM_DEVICE_ENUM_0115(0x0115,"遥控2"),
-//    DM_DEVICE_ENUM_021D(0x021D,"遥控3"),
+    DM_DEVICE_ENUM_0115(0x0115,32,"遥控2"),
+    DM_DEVICE_ENUM_021D(0x021D,33,"遥控3"),
 
 
     ;
@@ -79,34 +79,34 @@ public enum DmDeviceEnum {
     }
 
     public static Integer mapping(Integer code){
-
-        if(code == 0x010F) {
-            return 0x0104;
-        }
-        if(code == 0x000D) {
-            return 0x0107;
-        }
-
-        if(code == 0x0015) {
-            return 0x0108;
-        }
-        if(code == 0x002B) {
-            return 0x010A;
-        }
-        if(code == 0x002A) {
-            return 0x0109;
-        }
-        if(code == 0x0028) {
-            return 0x0402;
-        }
-        if(code == 0x002C) {
-            return 0x0404;
-        }
-
-        if(code == 0x8AAA) {
-            return 0x0403;
-        }
-
+        if(code == 0x010F) { return 0x0404;   }
+        if(code == 0x000D) { return 0x0107;   }//红外
+        if(code == 0x0015) { return 0x0108;   }
+        if(code == 0x002B) { return 0x010A;   }
+        if(code == 0x002A) { return 0x0109;   }
+        if(code == 0x0028) { return 0x0402;   }//烟雾报警
+        if(code == 0x002C) { return 0x0404;   }//无线紧急按钮
+        if(code == 0x8AAA) { return 0x0403;   }
+        if(code == 0x0115) { return 0x0404;   }
         return 0x0404;
+        /*      DM_DEVICE_ENUM_0104(0x0104, 24, "xx设备"),
+                DM_DEVICE_ENUM_0107(0x0107, 25, "红外感应器"),
+                DM_DEVICE_ENUM_0108(0x0108, 26, "门磁感应器"),
+                DM_DEVICE_ENUM_010A(0x010A, 27, "燃气报警器"),
+                DM_DEVICE_ENUM_0109(0x0109, 28, "漏水感应器"),
+                DM_DEVICE_ENUM_0102(0x0402, 29, "烟雾报警器"),
+                DM_DEVICE_ENUM_0404(0x0404, 30, "无线紧急按键"),
+                DM_DEVICE_ENUM_0403(0x0403, 31, "声光报警器"),
+                //嘉德
+                DM_DEVICE_ENUM_010F(0x010F,24,"遥控1"),
+                DM_DEVICE_ENUM_0D00(0x000D,25,"红外感应器"),
+                DM_DEVICE_ENUM_1501(0x0015,26,"门磁感应器"),
+                DM_DEVICE_ENUM_002B(0x002B,27,"燃气报警器"),
+                DM_DEVICE_ENUM_002A(0x002A,28,"漏水感应器"),
+                DM_DEVICE_ENUM_0028(0x0028,29,"烟雾报警器"),
+                DM_DEVICE_ENUM_0225(0x002C,30,"无线紧急按键"),
+                DM_DEVICE_ENUM_8AAA(0x8AAA,31,"门铃感应器"),
+                DM_DEVICE_ENUM_0115(0x0115,32,"遥控2"),
+                DM_DEVICE_ENUM_021D(0x021D,33,"遥控3"),*/
     }
 }

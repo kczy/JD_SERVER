@@ -24,10 +24,14 @@ public class HttpUtil {
         try {
 
 
+//         HttpUtil.doPostStr(
+//                 Configuration.DEVICE_LIST,
+//                 "{\"type\":2,\"securityDeviceResponseVOList\":[{\"sno\":\"303030303539\",\"profile\":0,\"state\":6}]}"
+//         );
          HttpUtil.doPostStr(
                  Configuration.DEVICE_LIST,
-                 "{\"type\":2,\"securityDeviceResponseVOList\":[{\"sno\":\"303030303539\",\"profile\":0,\"state\":6}]}"
-         );
+                 "{\"type\":1,\"securityDeviceResponseVOList\":[{\"sno\":\"653134636330\",\"address\":\"/223.104.255.137:4410\",\"endpoint\":0,\"profile\":0,\"device\":1026,\"name\":\"烟雾报警器\",\"state\":7,\"ieee\":\"5000c00000000000\",\"clusterId\":7,\"electric\":0}]}\n"
+                 );
 
 
 
