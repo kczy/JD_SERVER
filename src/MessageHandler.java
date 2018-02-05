@@ -26,7 +26,7 @@ public class MessageHandler extends IoHandlerAdapter {
     static Logger log = Logger.getLogger(MinaServer.class.getName());
     static{
         try {
-            LoggerUtils.setLogingProperties(log);
+            LoggerUtils.setLogingProperties(log);       //将日志打印到指定的文件位置！！！
         } catch (IOException e) {
             e.printStackTrace();
         }
