@@ -458,11 +458,11 @@ public class MessageHandler extends IoHandlerAdapter {
      * @param devices
      */
     private void SendListToAndoid(IoSession session, List<SecurityDeviceResponseVO> devices) {
-        byte jinji=00000001;
-        byte yanwu=00000001;
-        byte qigan=00000001;
-        byte hongwai=00000001;
-        byte menci=00000001;
+        byte jinji=00000001;    //紧急
+        byte yanwu=00000001;    //烟雾
+        byte qigan=00000001;    //气感
+        byte hongwai=00000001;  //红外
+        byte menci=00000001;    //门磁
         for(SecurityDeviceResponseVO device:devices){
             switch(device.getDevice()){
                 case 0x0404:jinji= (byte) (jinji<<7);break;
